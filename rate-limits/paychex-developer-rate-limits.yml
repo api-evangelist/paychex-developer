@@ -1,0 +1,62 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Paychex
+providerId: paychex-developer
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+notes: Paychex does not publish numerical rate limits in the public developer
+  documentation. Limits are enforced server-side, scoped to the registered partner
+  application credentials, and differ between sandbox and production environments.
+  Pagination defaults observed in integration guides are documented below.
+tags:
+  - Rate Limiting
+  - Pagination
+  - Paychex Flex
+  - Payroll
+description: Paychex enforces rate limits and pagination caps on its REST APIs but
+  does not document specific thresholds publicly. Partners receive limits as part of
+  their onboarding documentation; sandbox limits are smaller than production. Clients
+  should implement backoff on 429 responses and respect the documented pagination
+  caps (default 25, max 100 per page).
+sources:
+  - https://developer.paychex.com/
+  - https://developer.paychex.com/getting-started/overview
+responseCodes:
+  throttled: 429
+  serviceUnavailable: 503
+limits:
+  - name: Per-partner production rate limit
+    scope: account
+    metric: varies
+    limit: see Paychex partner documentation
+    notes: Not publicly disclosed; obtained via partner onboarding.
+  - name: Sandbox rate limit
+    scope: account
+    metric: varies
+    limit: lower than production
+    notes: Sandbox environments are tuned for development traffic, not load testing.
+  - name: Pagination default
+    scope: request
+    metric: items_per_page
+    limit: 25
+    notes: Default page size for list endpoints when limit is omitted.
+  - name: Pagination max
+    scope: request
+    metric: items_per_page
+    limit: 100
+    notes: Maximum allowed page size for list endpoints.
+policies:
+  - name: Backoff
+    description: Use exponential backoff with jitter on 429/503 responses; honor
+      Retry-After when present.
+  - name: Sandbox vs production
+    description: Sandbox limits are smaller than production; do not load-test in
+      sandbox.
+  - name: Partner-scoped
+    description: Limits are scoped to the registered partner application credentials,
+      not per end-client.
+  - name: Pagination
+    description: Use offset/limit pagination; request large result sets in pages of
+      no more than 100.

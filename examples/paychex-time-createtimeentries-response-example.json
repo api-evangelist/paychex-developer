@@ -1,0 +1,24 @@
+{
+  "accepted": 3,
+  "rejected": 0,
+  "results": [
+    {
+      "workerId": "W-100001",
+      "workDate": "2026-05-20",
+      "status": "ACCEPTED",
+      "message": "Time entry accepted for payroll processing."
+    },
+    {
+      "workerId": "W-100001",
+      "workDate": "2026-05-20",
+      "status": "ACCEPTED",
+      "message": "Overtime entry accepted for payroll processing."
+    },
+    {
+      "workerId": "W-100002",
+      "workDate": "2026-05-21",
+      "status": "ACCEPTED",
+      "message": "Contractor time entry accepted with rate override."
+    }
+  ]
+}

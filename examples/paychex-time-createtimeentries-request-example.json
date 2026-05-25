@@ -1,0 +1,27 @@
+{
+  "companyId": "12A1B2C3D4E5F6",
+  "entries": [
+    {
+      "workerId": "W-100001",
+      "workDate": "2026-05-20",
+      "hours": 8.0,
+      "earningType": "REG",
+      "departmentCode": "FOH"
+    },
+    {
+      "workerId": "W-100001",
+      "workDate": "2026-05-20",
+      "hours": 1.5,
+      "earningType": "OT",
+      "departmentCode": "FOH"
+    },
+    {
+      "workerId": "W-100002",
+      "workDate": "2026-05-21",
+      "hours": 4.0,
+      "earningType": "REG",
+      "rateOverride": 75.0,
+      "notes": "Catering shoot, Geneva NY location."
+    }
+  ]
+}

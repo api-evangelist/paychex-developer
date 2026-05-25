@@ -1,0 +1,35 @@
+{
+  "content": [
+    {
+      "workerId": "W-100001",
+      "companyId": "12A1B2C3D4E5F6",
+      "workerType": "EMPLOYEE",
+      "workerStatus": "ACTIVE",
+      "name": {
+        "givenName": "Jane",
+        "middleName": "Marie",
+        "familyName": "Doe",
+        "preferredName": "Janie"
+      },
+      "contact": {
+        "emailAddress": "jane.doe@example.com",
+        "phoneNumber": "+1-585-555-0142",
+        "address": {
+          "streetLineOne": "1175 John St",
+          "city": "West Henrietta",
+          "stateCode": "NY",
+          "postalCode": "14586",
+          "countryCode": "US"
+        }
+      },
+      "employment": {
+        "hireDate": "2023-03-15",
+        "jobTitle": "Shift Supervisor",
+        "departmentCode": "FOH",
+        "payFrequency": "BIWEEKLY",
+        "payType": "HOURLY",
+        "baseRate": 22.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "paychex": "https://developer.paychex.com/vocabulary#",
+    "Worker": "schema:Person",
+    "workerId": "paychex:workerId",
+    "companyId": "paychex:companyId",
+    "workerType": "paychex:workerType",
+    "workerStatus": "paychex:workerStatus",
+    "givenName": "schema:givenName",
+    "middleName": "schema:additionalName",
+    "familyName": "schema:familyName",
+    "preferredName": "schema:alternateName",
+    "emailAddress": "schema:email",
+    "phoneNumber": "schema:telephone",
+    "address": "schema:address",
+    "hireDate": "paychex:hireDate",
+    "terminationDate": "paychex:terminationDate",
+    "jobTitle": "schema:jobTitle",
+    "departmentCode": "paychex:departmentCode",
+    "payFrequency": "paychex:payFrequency",
+    "payType": "paychex:payType",
+    "baseRate": "schema:baseSalary"
+  }
+}

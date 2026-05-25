@@ -1,0 +1,68 @@
+specification: API Commons Vocabulary
+specificationVersion: '0.1'
+provider: Paychex
+providerId: paychex-developer
+created: '2026-05-25'
+modified: '2026-05-25'
+description: Operational and capability vocabulary for the Paychex Developer Program —
+  the REST APIs that surface Paychex Flex companies, workers, and time data to
+  approved partners and clients.
+tags:
+  - Paychex
+  - Paychex Flex
+  - Payroll
+  - HCM
+  - Workforce
+domain:
+  - name: Payroll
+    description: Calculation, processing, and disbursement of employee pay using
+      Paychex Flex payroll engines.
+  - name: Human Resources
+    description: Worker records, employment status, organizational structure, and
+      compliance data managed inside Paychex Flex.
+  - name: Time and Attendance
+    description: Punches, time entries, and time-worked totals fed into Paychex
+      Payroll for hourly and salaried workers.
+  - name: Benefits
+    description: Health, retirement, and voluntary benefits administered alongside
+      payroll on Paychex Flex.
+operational:
+  - name: Company
+    description: Tenant resource representing an employer that uses Paychex Flex; the
+      root for all other resources in the developer APIs.
+  - name: Worker
+    description: An employee or contractor associated with a company; the primary HR
+      and payroll subject.
+  - name: TimeEntry
+    description: A single record of work performed by a worker on a given date,
+      submitted into Paychex Payroll via the Time API.
+  - name: EarningType
+    description: Classification of paid time (REG, OT, PTO, HOL, etc.) used on time
+      entries and pay components.
+  - name: PartnerApplication
+    description: Registered third-party application that holds an OAuth 2.0
+      client_credentials grant and access to a specific set of companies.
+capability:
+  - name: Discover Companies
+    description: List the companies a partner application has been granted access to.
+  - name: Read Workers
+    description: List and retrieve worker records for a company.
+  - name: Submit Time
+    description: Push time entries from a third-party time and attendance tool into
+      Paychex Payroll.
+  - name: Enforce Tenancy
+    description: Scope every request to a specific company the application is authorized
+      for; reject cross-tenant access.
+products:
+  - name: Paychex Flex
+    description: The cloud HR, payroll, time, and benefits platform that the developer
+      APIs read and write against.
+  - name: Paychex HR PEO
+    description: Co-employment service whose records flow through the same Paychex
+      Flex platform.
+  - name: Paychex Time
+    description: Time and attendance product whose data model is exposed (and writable)
+      via the Paychex Time API.
+  - name: Paychex Marketplace
+    description: Curated marketplace of partner integrations built on the Paychex
+      developer APIs.

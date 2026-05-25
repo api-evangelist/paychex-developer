@@ -1,0 +1,193 @@
+openapi: 3.1.0
+info:
+  title: Paychex Payroll Companies API
+  description: >-
+    The Paychex Payroll Companies API exposes the list of payroll-bearing
+    companies that a registered Paychex application has been granted access to,
+    along with each company's configuration. Companies are the root tenant
+    resource for all other Paychex REST APIs — workers and time are nested
+    underneath a company.
+  version: 1.0.0
+  contact:
+    name: Paychex Developer Program
+    url: https://developer.paychex.com/
+  license:
+    name: Paychex API Terms of Use
+    url: https://developer.paychex.com/
+
+servers:
+  - url: https://api.paychex.com
+    description: Paychex Production API
+
+security:
+  - oauth2ClientCredentials: []
+
+tags:
+  - name: Companies
+    description: Companies available to the registered application.
+
+paths:
+  /companies:
+    get:
+      operationId: listCompanies
+      summary: List Companies
+      description: >-
+        Return the collection of companies that the registered application has
+        been granted access to. Used as the discovery endpoint for downstream
+        Workers and Time calls.
+      tags: [Companies]
+      parameters:
+        - name: offset
+          in: query
+          description: Zero-based offset used for pagination.
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - name: limit
+          in: query
+          description: Maximum number of records to return per page (default 25, max 100).
+          schema:
+            type: integer
+            default: 25
+            minimum: 1
+            maximum: 100
+      responses:
+        '200':
+          description: Collection of companies.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompaniesResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /companies/{companyId}:
+    get:
+      operationId: getCompany
+      summary: Get Company by ID
+      description: Retrieve a single Paychex Flex company by its identifier.
+      tags: [Companies]
+      parameters:
+        - name: companyId
+          in: path
+          required: true
+          description: Paychex Flex company identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Company record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.paychex.com/auth/oauth/v2/token
+          scopes: {}
+  schemas:
+    Company:
+      type: object
+      description: A Paychex Flex company (employer) that the application can act on.
+      properties:
+        companyId:
+          type: string
+          description: Paychex Flex company identifier.
+        displayId:
+          type: string
+          description: Human-readable display identifier shown in Paychex Flex.
+        legalName:
+          type: string
+          description: Legal business name of the company.
+        dba:
+          type: string
+          description: Doing-business-as name, when distinct from legal name.
+        federalEin:
+          type: string
+          description: Federal Employer Identification Number (EIN).
+        status:
+          type: string
+          description: Company status (e.g., ACTIVE, INACTIVE).
+        clientType:
+          type: string
+          description: Paychex client product line (e.g., Flex, PEO, SurePayroll).
+    CompanyResponse:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+    CompaniesResponse:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/PageMetadata'
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+    PageMetadata:
+      type: object
+      properties:
+        contentItemCount:
+          type: integer
+          description: Number of items returned in this page.
+        totalContentItemCount:
+          type: integer
+          description: Total number of items across all pages.
+        offset:
+          type: integer
+          description: Zero-based offset of this page.
+        limit:
+          type: integer
+          description: Page size used for this response.
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Registered application is not authorized for this company resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded; retry after the indicated interval.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

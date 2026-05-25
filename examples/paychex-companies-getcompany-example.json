@@ -1,0 +1,13 @@
+{
+  "content": [
+    {
+      "companyId": "12A1B2C3D4E5F6",
+      "displayId": "0000123456",
+      "legalName": "Acme Restaurant Group, Inc.",
+      "dba": "Acme Diner",
+      "federalEin": "12-3456789",
+      "status": "ACTIVE",
+      "clientType": "Flex"
+    }
+  ]
+}

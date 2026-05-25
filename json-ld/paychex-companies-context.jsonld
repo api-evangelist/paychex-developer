@@ -1,0 +1,14 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "paychex": "https://developer.paychex.com/vocabulary#",
+    "Company": "schema:Organization",
+    "companyId": "paychex:companyId",
+    "displayId": "paychex:displayId",
+    "legalName": "schema:legalName",
+    "dba": "schema:alternateName",
+    "federalEin": "schema:taxID",
+    "status": "paychex:status",
+    "clientType": "paychex:clientType"
+  }
+}

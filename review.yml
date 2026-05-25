@@ -1,0 +1,116 @@
+executed: '2026-05-25T00:00:00.000Z'
+provider: Paychex
+providerId: paychex-developer
+specification: APIs.json Review
+specificationVersion: '0.19'
+results:
+  - code: apis-json-specification-aid-info
+    message: There is an aid.
+    path: [aid]
+    severity: 2
+  - code: apis-json-url-info
+    message: There is a URL.
+    path: [url]
+    severity: 2
+  - code: apis-json-apis-info
+    message: Has APIs
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-baseURL-info
+    message: APIs have a Base URL
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-tags-info
+    message: APIs have a Tags Object
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-humanURL-info
+    message: APIs have a Human URL
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-properties-openapi-info
+    message: APIs have an OpenAPI property
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-properties-documentation-info
+    message: APIs have Documentation property
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-properties-getting-started-info
+    message: APIs have a Getting Started property
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-properties-authentication-info
+    message: APIs have an Authentication property
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-properties-jsonschema-info
+    message: APIs have a JSONSchema property (companies, workers)
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-properties-jsonld-info
+    message: APIs have a JSONLD property (companies, workers)
+    path: [apis]
+    severity: 2
+  - code: apis-json-apis-properties-naftiko-capability-info
+    message: APIs have a NaftikoCapability property
+    path: [apis]
+    severity: 2
+  - code: apis-json-common-info
+    message: Common properties are present.
+    path: [common]
+    severity: 2
+  - code: apis-json-common-portal-info
+    message: Has a developer portal in common.
+    path: [common]
+    severity: 2
+  - code: apis-json-common-github-org-info
+    message: Has a GitHub organization in common.
+    path: [common]
+    severity: 2
+  - code: apis-json-common-plans-info
+    message: Has a Plans property in common.
+    path: [common]
+    severity: 2
+  - code: apis-json-common-rate-limits-info
+    message: Has a RateLimits property in common.
+    path: [common]
+    severity: 2
+  - code: apis-json-common-finops-info
+    message: Has a FinOps property in common.
+    path: [common]
+    severity: 2
+  - code: apis-json-common-vocabulary-info
+    message: Has a Vocabulary property in common.
+    path: [common]
+    severity: 2
+  - code: apis-json-common-spectral-rules-info
+    message: Has a SpectralRules property in common.
+    path: [common]
+    severity: 2
+  - code: apis-json-created-info
+    message: There is a created date.
+    path: [created]
+    severity: 2
+  - code: apis-json-modified-info
+    message: There is a modified date.
+    path: [modified]
+    severity: 2
+  - code: apis-json-description-info
+    message: There is a description.
+    path: [description]
+    severity: 2
+  - code: apis-json-maintainers-info
+    message: There is a maintainers object.
+    path: [maintainers]
+    severity: 2
+  - code: apis-json-specification-version-info
+    message: There is a specification version (0.19).
+    path: [specificationVersion]
+    severity: 2
+  - code: apis-json-tier-info
+    message: 'Tier classification: Tier-1 (governed payroll/HCM provider with documented
+      REST APIs, OAuth 2.0 client credentials, partner program, sandbox, and active
+      developer portal at developer.paychex.com).'
+    path: [tier]
+    severity: 2

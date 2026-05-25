@@ -1,0 +1,164 @@
+openapi: 3.1.0
+info:
+  title: Paychex Time API
+  description: >-
+    The Paychex Time API allows third-party time and attendance vendors to
+    submit time entries, punches, and time-worked totals for workers inside a
+    Paychex Flex company so they flow into Paychex Payroll processing.
+  version: 1.0.0
+  contact:
+    name: Paychex Developer Program
+    url: https://developer.paychex.com/
+  license:
+    name: Paychex API Terms of Use
+    url: https://developer.paychex.com/
+
+servers:
+  - url: https://api.paychex.com
+    description: Paychex Production API
+
+security:
+  - oauth2ClientCredentials: []
+
+tags:
+  - name: Time Entries
+    description: Time entry, punch, and time-worked submissions.
+
+paths:
+  /time/v1/timeentries:
+    post:
+      operationId: createTimeEntries
+      summary: Submit Time Entries
+      description: >-
+        Submit one or more time entries (worked hours, earnings categories, and
+        labor allocations) for workers inside a Paychex Flex company.
+      tags: [Time Entries]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeEntriesRequest'
+      responses:
+        '201':
+          description: Time entries accepted for payroll processing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeEntriesResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.paychex.com/auth/oauth/v2/token
+          scopes: {}
+  schemas:
+    TimeEntriesRequest:
+      type: object
+      required: [companyId, entries]
+      properties:
+        companyId:
+          type: string
+          description: Paychex Flex company identifier the entries apply to.
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeEntry'
+    TimeEntry:
+      type: object
+      required: [workerId, workDate, hours, earningType]
+      properties:
+        workerId:
+          type: string
+          description: Paychex Flex worker identifier.
+        workDate:
+          type: string
+          format: date
+          description: Calendar date the work was performed (ISO 8601).
+        hours:
+          type: number
+          format: double
+          description: Hours worked, in decimal hours.
+        earningType:
+          type: string
+          description: Earnings code (e.g., REG, OT, PTO).
+        rateOverride:
+          type: number
+          format: double
+          description: Optional override hourly rate.
+        departmentCode:
+          type: string
+          description: Department/labor allocation code.
+        notes:
+          type: string
+    TimeEntriesResponse:
+      type: object
+      properties:
+        accepted:
+          type: integer
+          description: Number of entries accepted for processing.
+        rejected:
+          type: integer
+          description: Number of entries rejected with validation errors.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeEntryResult'
+    TimeEntryResult:
+      type: object
+      properties:
+        workerId:
+          type: string
+        workDate:
+          type: string
+          format: date
+        status:
+          type: string
+          description: ACCEPTED or REJECTED.
+        message:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+  responses:
+    BadRequest:
+      description: Request payload failed validation.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Registered application is not authorized for this company resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded; retry after the indicated interval.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'

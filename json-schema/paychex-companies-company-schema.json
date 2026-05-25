@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paychex-developer/main/json-schema/paychex-companies-company-schema.json",
+  "title": "Paychex Company",
+  "description": "A Paychex Flex company (employer) that a registered application can act on.",
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "type": "string",
+      "description": "Paychex Flex company identifier."
+    },
+    "displayId": {
+      "type": "string",
+      "description": "Human-readable display identifier shown in Paychex Flex."
+    },
+    "legalName": {
+      "type": "string",
+      "description": "Legal business name of the company."
+    },
+    "dba": {
+      "type": "string",
+      "description": "Doing-business-as name."
+    },
+    "federalEin": {
+      "type": "string",
+      "description": "Federal Employer Identification Number (EIN)."
+    },
+    "status": {
+      "type": "string",
+      "description": "Company status (e.g., ACTIVE, INACTIVE)."
+    },
+    "clientType": {
+      "type": "string",
+      "description": "Paychex client product line (e.g., Flex, PEO, SurePayroll)."
+    }
+  },
+  "required": ["companyId"]
+}

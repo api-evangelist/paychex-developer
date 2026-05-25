@@ -1,0 +1,66 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Paychex
+providerId: paychex-developer
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+notes: Paychex does not publish a public per-tier API price list. API access is gated
+  behind partner registration and Paychex approval; commercial terms are negotiated as
+  part of the partner agreement. Sandbox credentials are issued to approved integrators
+  rather than via self-serve signup. Plan scaffolding below reflects this gated model.
+tags:
+  - Payroll
+  - HCM
+  - HR
+  - Time
+  - Paychex Flex
+description: Paychex does not expose a self-serve pricing tier for the Paychex Developer
+  Program. API consumers must apply to become a Paychex Partner or build an integration
+  for a specific Paychex Flex client; pricing and revenue share are contract-based.
+  Free sandbox access is provided to approved partners during certification.
+sources:
+  - https://developer.paychex.com/
+  - https://developer.paychex.com/getting-started/overview
+plans:
+  - id: paychex-partner-sandbox
+    name: Partner Sandbox
+    type: freemium
+    description: Free sandbox access granted to approved Paychex partners and clients
+      for integration development and certification.
+    entries:
+      - label: Sandbox access
+        name: sandbox
+        type: quota
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: us
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Sandbox endpoints (Companies, Workers, Time)
+      - name: Partner documentation and onboarding
+      - name: OAuth 2.0 client_credentials issuance
+  - id: paychex-partner-production
+    name: Partner Production
+    type: contract
+    description: Production API access tied to a signed Paychex partner agreement.
+      Pricing and any per-client revenue share are custom and not publicly disclosed.
+    entries:
+      - label: Production API access
+        name: production
+        type: contract
+        metric: contract
+        limit: -1
+        timeFrame: contract
+        geo: us
+        unit: 1
+        price: 'custom'
+        userMultiplied: false
+    elements:
+      - name: Production endpoints across Companies, Workers, and Time
+      - name: Per-client authorization scoping
+      - name: Partner marketplace listing (optional)

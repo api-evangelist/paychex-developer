@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "contentItemCount": 2,
+    "totalContentItemCount": 2,
+    "offset": 0,
+    "limit": 25
+  },
+  "content": [
+    {
+      "companyId": "12A1B2C3D4E5F6",
+      "displayId": "0000123456",
+      "legalName": "Acme Restaurant Group, Inc.",
+      "dba": "Acme Diner",
+      "federalEin": "12-3456789",
+      "status": "ACTIVE",
+      "clientType": "Flex"
+    },
+    {
+      "companyId": "98Z9Y8X7W6V5U4",
+      "displayId": "0000654321",
+      "legalName": "Northwind Skilled Trades LLC",
+      "dba": "Northwind HVAC",
+      "federalEin": "98-7654321",
+      "status": "ACTIVE",
+      "clientType": "PEO"
+    }
+  ]
+}

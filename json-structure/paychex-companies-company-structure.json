@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/draft/2025/schema",
+  "title": "Paychex Company Structure",
+  "description": "JSON Structure documentation of the Paychex Flex Company resource exposed by the Payroll Companies API.",
+  "type": "object",
+  "properties": {
+    "companyId": { "type": "string", "role": "identifier" },
+    "displayId": { "type": "string", "role": "display" },
+    "legalName": { "type": "string", "role": "name" },
+    "dba": { "type": "string" },
+    "federalEin": { "type": "string", "role": "tax-identifier" },
+    "status": { "type": "string", "role": "lifecycle-status" },
+    "clientType": { "type": "string", "role": "classification" }
+  },
+  "required": ["companyId"]
+}

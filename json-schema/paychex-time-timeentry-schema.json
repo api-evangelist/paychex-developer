@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paychex-developer/main/json-schema/paychex-time-timeentry-schema.json",
+  "title": "Paychex Time Entry",
+  "description": "A single time entry submitted to the Paychex Time API for payroll processing.",
+  "type": "object",
+  "properties": {
+    "workerId": { "type": "string", "description": "Paychex Flex worker identifier." },
+    "workDate": { "type": "string", "format": "date", "description": "Calendar date the work was performed (ISO 8601)." },
+    "hours": { "type": "number", "description": "Hours worked, in decimal hours." },
+    "earningType": { "type": "string", "description": "Earnings code (e.g., REG, OT, PTO)." },
+    "rateOverride": { "type": "number", "description": "Optional override hourly rate." },
+    "departmentCode": { "type": "string", "description": "Department or labor allocation code." },
+    "notes": { "type": "string" }
+  },
+  "required": ["workerId", "workDate", "hours", "earningType"]
+}

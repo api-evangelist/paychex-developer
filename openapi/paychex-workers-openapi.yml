@@ -1,0 +1,250 @@
+openapi: 3.1.0
+info:
+  title: Paychex Workers API
+  description: >-
+    The Paychex Workers API provides access to employees and contractors inside
+    a Paychex Flex company. Workers are nested under the company resource and
+    expose personal data, employment status, pay rates, and work assignments.
+  version: 1.0.0
+  contact:
+    name: Paychex Developer Program
+    url: https://developer.paychex.com/
+  license:
+    name: Paychex API Terms of Use
+    url: https://developer.paychex.com/
+
+servers:
+  - url: https://api.paychex.com
+    description: Paychex Production API
+
+security:
+  - oauth2ClientCredentials: []
+
+tags:
+  - name: Workers
+    description: Employees and contractors for a Paychex Flex company.
+
+paths:
+  /companies/{companyId}/workers:
+    get:
+      operationId: listCompanyWorkers
+      summary: List Company Workers
+      description: >-
+        Return the collection of workers (employees and contractors) for a
+        company that the registered application has been granted access to.
+      tags: [Workers]
+      parameters:
+        - name: companyId
+          in: path
+          required: true
+          description: Paychex Flex company identifier.
+          schema:
+            type: string
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 25
+            minimum: 1
+            maximum: 100
+      responses:
+        '200':
+          description: Collection of workers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkersResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /companies/{companyId}/workers/{workerId}:
+    get:
+      operationId: getCompanyWorker
+      summary: Get Company Worker
+      description: Retrieve a single worker (employee or contractor) by ID.
+      tags: [Workers]
+      parameters:
+        - name: companyId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: workerId
+          in: path
+          required: true
+          description: Paychex Flex worker identifier.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Worker record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkerResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.paychex.com/auth/oauth/v2/token
+          scopes: {}
+  schemas:
+    Worker:
+      type: object
+      description: A worker (employee or contractor) in a Paychex Flex company.
+      properties:
+        workerId:
+          type: string
+          description: Paychex Flex worker identifier.
+        companyId:
+          type: string
+          description: Identifier of the company the worker belongs to.
+        workerType:
+          type: string
+          description: Worker classification (EMPLOYEE, CONTRACTOR).
+        workerStatus:
+          type: string
+          description: Employment status (ACTIVE, TERMINATED, LEAVE).
+        name:
+          $ref: '#/components/schemas/PersonName'
+        contact:
+          $ref: '#/components/schemas/ContactInfo'
+        employment:
+          $ref: '#/components/schemas/EmploymentInfo'
+    PersonName:
+      type: object
+      properties:
+        givenName:
+          type: string
+        middleName:
+          type: string
+        familyName:
+          type: string
+        preferredName:
+          type: string
+    ContactInfo:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+          format: email
+        phoneNumber:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+    Address:
+      type: object
+      properties:
+        streetLineOne:
+          type: string
+        streetLineTwo:
+          type: string
+        city:
+          type: string
+        stateCode:
+          type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+    EmploymentInfo:
+      type: object
+      properties:
+        hireDate:
+          type: string
+          format: date
+        terminationDate:
+          type: string
+          format: date
+        jobTitle:
+          type: string
+        departmentCode:
+          type: string
+        payFrequency:
+          type: string
+          description: e.g., WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY.
+        payType:
+          type: string
+          description: e.g., HOURLY, SALARY.
+        baseRate:
+          type: number
+          format: double
+    WorkerResponse:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+    WorkersResponse:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/PageMetadata'
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+    PageMetadata:
+      type: object
+      properties:
+        contentItemCount:
+          type: integer
+        totalContentItemCount:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Registered application is not authorized for this company resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded; retry after the indicated interval.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
