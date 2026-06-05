@@ -1,8 +1,9 @@
 aid: paychex-developer
 name: Paychex
-description: Paychex, Inc. (NASDAQ: PAYX) is a Rochester, New York-based provider of integrated payroll,
-  human resources, retirement, insurance, and benefits outsourcing services for small- and medium-sized
-  businesses, with developer APIs exposed through the Paychex Flex platform.
+description: >-
+  Paychex, Inc. (NASDAQ: PAYX) is a Rochester, New York-based provider of integrated payroll, human resources,
+  retirement, insurance, and benefits outsourcing services for small- and medium-sized businesses, with developer APIs
+  exposed through the Paychex Flex platform.
 image: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/image.png
 url: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/apis.yml
 created: '2026-05-25'
@@ -13,10 +14,11 @@ access: 3rd-Party
 apis:
   - aid: paychex-developer:paychex-payroll-companies-api
     name: Paychex Payroll Companies API
-    description: The Paychex Payroll Companies API exposes the list of payroll-bearing companies
-      that a registered Paychex application has been granted access to, along with each company's
-      configuration, pay components, deductions, earnings, and worksite data. It is the entry point
-      to every other Paychex REST API — workers and time are scoped underneath a company resource.
+    description: >-
+      The Paychex Payroll Companies API exposes the list of payroll-bearing companies that a registered Paychex
+      application has been granted access to, along with each company's configuration, pay components, deductions,
+      earnings, and worksite data. It is the entry point to every other Paychex REST API — workers and time are scoped
+      underneath a company resource.
     tags:
       - Companies
       - Employer
@@ -39,14 +41,12 @@ apis:
         url: json-schema/paychex-companies-company-schema.json
       - type: JSONLD
         url: json-ld/paychex-companies-context.jsonld
-      - type: NaftikoCapability
-        url: capabilities/paychex-companies.yaml
   - aid: paychex-developer:paychex-workers-api
     name: Paychex Workers API
-    description: The Paychex Workers API provides access to employee and contractor records inside a
-      Paychex Flex company — including personal details, employment status, pay rates, work assignments,
-      and lifecycle events such as hire and termination. Workers are addressed as a sub-resource of a
-      company (`/companies/{companyId}/workers`).
+    description: >-
+      The Paychex Workers API provides access to employee and contractor records inside a Paychex Flex company —
+      including personal details, employment status, pay rates, work assignments, and lifecycle events such as hire and
+      termination. Workers are addressed as a sub-resource of a company (`/companies/{companyId}/workers`).
     tags:
       - Employees
       - HCM
@@ -70,14 +70,12 @@ apis:
         url: json-schema/paychex-workers-worker-schema.json
       - type: JSONLD
         url: json-ld/paychex-workers-context.jsonld
-      - type: NaftikoCapability
-        url: capabilities/paychex-workers.yaml
   - aid: paychex-developer:paychex-time-api
     name: Paychex Time API
-    description: The Paychex Time API enables third-party time and attendance systems to submit
-      time entry, punch, and time-worked data for workers inside a Paychex Flex company so it can be
-      consumed by Paychex Payroll. Operations are versioned under `/time/v1/` and are typically
-      scoped per company and worker.
+    description: >-
+      The Paychex Time API enables third-party time and attendance systems to submit time entry, punch, and time-worked
+      data for workers inside a Paychex Flex company so it can be consumed by Paychex Payroll. Operations are versioned
+      under `/time/v1/` and are typically scoped per company and worker.
     tags:
       - Attendance
       - Paychex Flex
@@ -97,8 +95,6 @@ apis:
         url: https://developer.paychex.com/getting-started/overview
       - type: OpenAPI
         url: openapi/paychex-time-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/paychex-time.yaml
 common:
   - type: Portal
     url: https://developer.paychex.com/
@@ -162,57 +158,71 @@ common:
   - type: Features
     data:
       - name: Company-Scoped Access
-        description: Every API call is scoped to a company resource that the registered application has
-          been granted explicit access to, enforcing tenant isolation across Paychex Flex clients.
+        description: >-
+          Every API call is scoped to a company resource that the registered application has been granted explicit
+          access to, enforcing tenant isolation across Paychex Flex clients.
       - name: Worker Lifecycle Management
-        description: List, retrieve, and update worker records — including personal information, work
-          assignments, and pay rates — for hire-to-retire HR workflows.
+        description: >-
+          List, retrieve, and update worker records — including personal information, work assignments, and pay rates —
+          for hire-to-retire HR workflows.
       - name: Time Data Ingest
-        description: Submit time entries, punches, and time-worked records from third-party time and
-          attendance systems so they flow into Paychex Payroll processing.
+        description: >-
+          Submit time entries, punches, and time-worked records from third-party time and attendance systems so they
+          flow into Paychex Payroll processing.
       - name: OAuth 2.0 Client Credentials
-        description: All APIs are protected by an OAuth 2.0 client_credentials flow tied to a registered
-          Paychex partner or client application; there is no end-user OAuth dance.
+        description: >-
+          All APIs are protected by an OAuth 2.0 client_credentials flow tied to a registered Paychex partner or client
+          application; there is no end-user OAuth dance.
       - name: Partner-Approved Integrations
-        description: Production access is gated behind partner registration and Paychex approval; sandbox
-          credentials are issued during integration review rather than via self-serve signup.
+        description: >-
+          Production access is gated behind partner registration and Paychex approval; sandbox credentials are issued
+          during integration review rather than via self-serve signup.
       - name: Paychex Flex Native
-        description: APIs read and write against the same Paychex Flex platform used by ~800,000 payroll
-          clients, so changes flow through the same payroll, HR, and benefits engines.
+        description: >-
+          APIs read and write against the same Paychex Flex platform used by ~800,000 payroll clients, so changes flow
+          through the same payroll, HR, and benefits engines.
   - type: UseCases
     data:
       - name: HRIS and Payroll Sync
-        description: Keep an external HRIS or workforce-management system in sync with Paychex Flex by
-          listing companies, mirroring workers, and reconciling pay and assignment changes.
+        description: >-
+          Keep an external HRIS or workforce-management system in sync with Paychex Flex by listing companies, mirroring
+          workers, and reconciling pay and assignment changes.
       - name: Time and Attendance Integration
-        description: Push punches, time entries, and time-worked totals from third-party time tracking
-          tools into Paychex Payroll so labor data drives paychecks automatically.
+        description: >-
+          Push punches, time entries, and time-worked totals from third-party time tracking tools into Paychex Payroll
+          so labor data drives paychecks automatically.
       - name: Onboarding Automation
-        description: Trigger downstream onboarding workflows — provisioning, benefits, equipment — when a
-          new worker is created or activated in Paychex Flex.
+        description: >-
+          Trigger downstream onboarding workflows — provisioning, benefits, equipment — when a new worker is created or
+          activated in Paychex Flex.
       - name: Embedded Payroll for Partners
-        description: ISVs and vertical SaaS platforms surface Paychex payroll inside their own product,
-          using the developer APIs to read companies and workers and feed payroll inputs.
+        description: >-
+          ISVs and vertical SaaS platforms surface Paychex payroll inside their own product, using the developer APIs to
+          read companies and workers and feed payroll inputs.
       - name: Analytics and Workforce Reporting
-        description: Pull worker, company, and time data into BI and people-analytics stacks for
-          headcount, labor cost, and compliance reporting.
+        description: >-
+          Pull worker, company, and time data into BI and people-analytics stacks for headcount, labor cost, and
+          compliance reporting.
   - type: Integrations
     data:
       - name: Paychex Flex
-        description: Native integration with Paychex Flex — the cloud HR, payroll, time, and benefits
-          platform that the developer APIs sit on top of.
+        description: >-
+          Native integration with Paychex Flex — the cloud HR, payroll, time, and benefits platform that the developer
+          APIs sit on top of.
       - name: Paychex Time
-        description: Native time and attendance product whose data model is exposed (and writable) via
-          the Paychex Time API for third-party time vendors.
+        description: >-
+          Native time and attendance product whose data model is exposed (and writable) via the Paychex Time API for
+          third-party time vendors.
       - name: Paychex HR PEO
-        description: Professional Employer Organization (PEO) co-employment services that share the same
-          underlying worker and company records exposed via the developer APIs.
+        description: >-
+          Professional Employer Organization (PEO) co-employment services that share the same underlying worker and
+          company records exposed via the developer APIs.
       - name: Paychex Marketplace
-        description: Partner marketplace where vetted ISVs publish integrations built on the Paychex
-          developer APIs.
+        description: Partner marketplace where vetted ISVs publish integrations built on the Paychex developer APIs.
       - name: Paycor (Acquired 2025)
-        description: Paychex completed its $4.1B acquisition of Paycor in 2025, expanding the HCM
-          surface area covered by the broader Paychex platform.
+        description: >-
+          Paychex completed its $4.1B acquisition of Paycor in 2025, expanding the HCM surface area covered by the
+          broader Paychex platform.
 maintainers:
   - name: Kin Lane
     email: kin@apievangelist.com
@@ -224,3 +234,4 @@ tags:
   - Payroll
   - Time and Attendance
   - Workforce
+  - Fortune 1000
