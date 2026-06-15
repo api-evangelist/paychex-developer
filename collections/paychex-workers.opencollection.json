@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paychex Workers API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.paychex.com/auth/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Company Workers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paychex.com/companies/:companyId/workers",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "Paychex Flex company identifier."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return the collection of workers (employees and contractors) for a company that the registered application has been granted access to."
+        },
+        {
+          "info": {
+            "name": "Get Company Worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paychex.com/companies/:companyId/workers/:workerId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "workerId",
+                "value": "",
+                "type": "path",
+                "description": "Paychex Flex worker identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve a single worker (employee or contractor) by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
