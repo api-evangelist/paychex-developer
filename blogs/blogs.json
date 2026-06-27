@@ -2,17 +2,17 @@
   "repo": "paychex-developer",
   "feeds": [
     {
-      "source": "https://www.paychex.com/articles",
-      "feed_url": "https://www.paychex.com/articles",
+      "source": "https://www.paychex.com/rss.xml",
+      "feed_url": "https://www.paychex.com/rss.xml",
       "title": "",
-      "saved": 0,
-      "method": "none"
+      "saved": 1,
+      "method": "feed"
     },
     {
       "source": "https://www.youtube.com/user/PaychexInc",
       "error": "HTTPError"
     }
   ],
-  "post_count": 1,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 10,
+  "fetched": "2026-06-27T12:03:07Z"
 }
