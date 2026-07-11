@@ -1,0 +1,19 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/paychex-payroll-companies-openapi.yml, openapi/paychex-time-openapi.yml, openapi/paychex-workers-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: oauth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.paychex.com/auth/oauth/v2/token
+    scopes: 0
+  sources:
+  - openapi/paychex-payroll-companies-openapi.yml
+  - openapi/paychex-time-openapi.yml
+  - openapi/paychex-workers-openapi.yml

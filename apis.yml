@@ -96,6 +96,10 @@ apis:
       - type: OpenAPI
         url: openapi/paychex-time-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/paychex-developer-domain-security.yml
+  - type: Authentication
+    url: authentication/paychex-developer-authentication.yml
   - type: OAuthScopes
     url: scopes/paychex-developer-scopes.yml
   - type: Portal
