@@ -1,0 +1,27 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/paychex-payroll-companies-openapi.yml, openapi/paychex-time-openapi.yml, openapi/paychex-workers-openapi.yml
+docs: https://developer.paychex.com/getting-started/authentication
+note: >-
+  Paychex uses an OAuth 2.0 client_credentials flow with access granted per registered
+  partner application and company rather than requestable scopes; the public docs
+  (https://developer.paychex.com/getting-started/authentication) publish no scopes
+  reference, showing scope values (read:company_people write:company_people read:workers)
+  only inside a sample token response with no descriptions.
+schemes:
+- name: oauth2ClientCredentials
+  source: openapi/paychex-payroll-companies-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.paychex.com/auth/oauth/v2/token
+- name: oauth2ClientCredentials
+  source: openapi/paychex-time-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.paychex.com/auth/oauth/v2/token
+- name: oauth2ClientCredentials
+  source: openapi/paychex-workers-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.paychex.com/auth/oauth/v2/token
+scopes: []
