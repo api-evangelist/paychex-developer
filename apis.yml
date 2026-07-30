@@ -4,6 +4,19 @@ description: >-
   Paychex, Inc. (NASDAQ: PAYX) is a Rochester, New York-based provider of integrated payroll, human resources,
   retirement, insurance, and benefits outsourcing services for small- and medium-sized businesses, with developer APIs
   exposed through the Paychex Flex platform.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/image.png
 url: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/apis.yml
 created: '2026-05-25'
@@ -12,89 +25,78 @@ specificationVersion: '0.19'
 kind: contract
 access: 3rd-Party
 apis:
-  - aid: paychex-developer:paychex-payroll-companies-api
-    name: Paychex Payroll Companies API
-    description: >-
-      The Paychex Payroll Companies API exposes the list of payroll-bearing companies that a registered Paychex
-      application has been granted access to, along with each company's configuration, pay components, deductions,
-      earnings, and worksite data. It is the entry point to every other Paychex REST API — workers and time are scoped
-      underneath a company resource.
-    tags:
-      - Companies
-      - Employer
-      - HCM
-      - Paychex Flex
-      - Payroll
-    image: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/image.png
-    humanURL: https://developer.paychex.com/
-    baseURL: https://api.paychex.com
-    properties:
-      - type: Documentation
-        url: https://developer.paychex.com/documentation
-      - type: GettingStarted
-        url: https://developer.paychex.com/getting-started/overview
-      - type: Authentication
-        url: https://developer.paychex.com/getting-started/overview
-      - type: OpenAPI
-        url: openapi/paychex-payroll-companies-openapi.yml
-      - type: JSONSchema
-        url: json-schema/paychex-companies-company-schema.json
-      - type: JSONLD
-        url: json-ld/paychex-companies-context.jsonld
-  - aid: paychex-developer:paychex-workers-api
-    name: Paychex Workers API
-    description: >-
-      The Paychex Workers API provides access to employee and contractor records inside a Paychex Flex company —
-      including personal details, employment status, pay rates, work assignments, and lifecycle events such as hire and
-      termination. Workers are addressed as a sub-resource of a company (`/companies/{companyId}/workers`).
-    tags:
-      - Employees
-      - HCM
-      - HR
-      - Paychex Flex
-      - Workers
-      - Workforce
-    image: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/image.png
-    humanURL: https://developer.paychex.com/
-    baseURL: https://api.paychex.com
-    properties:
-      - type: Documentation
-        url: https://developer.paychex.com/documentation
-      - type: GettingStarted
-        url: https://developer.paychex.com/getting-started/overview
-      - type: Authentication
-        url: https://developer.paychex.com/getting-started/overview
-      - type: OpenAPI
-        url: openapi/paychex-workers-openapi.yml
-      - type: JSONSchema
-        url: json-schema/paychex-workers-worker-schema.json
-      - type: JSONLD
-        url: json-ld/paychex-workers-context.jsonld
-  - aid: paychex-developer:paychex-time-api
-    name: Paychex Time API
-    description: >-
-      The Paychex Time API enables third-party time and attendance systems to submit time entry, punch, and time-worked
-      data for workers inside a Paychex Flex company so it can be consumed by Paychex Payroll. Operations are versioned
-      under `/time/v1/` and are typically scoped per company and worker.
-    tags:
-      - Attendance
-      - Paychex Flex
-      - Payroll
-      - Time
-      - Time and Attendance
-      - Workforce Management
-    image: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/image.png
-    humanURL: https://developer.paychex.com/
-    baseURL: https://api.paychex.com
-    properties:
-      - type: Documentation
-        url: https://developer.paychex.com/documentation
-      - type: GettingStarted
-        url: https://developer.paychex.com/getting-started/overview
-      - type: Authentication
-        url: https://developer.paychex.com/getting-started/overview
-      - type: OpenAPI
-        url: openapi/paychex-time-openapi.yml
+- aid: paychex-developer:paychex-developer-companies-api
+  name: Paychex Companies API
+  description: Companies available to the registered application.
+  humanURL: https://developer.paychex.com/
+  baseURL: https://api.paychex.com
+  tags:
+  - Companies
+  properties:
+  - type: OpenAPI
+    url: openapi/paychex-developer-companies-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paychex.com/documentation
+  - type: GettingStarted
+    url: https://developer.paychex.com/getting-started/overview
+  - type: Authentication
+    url: https://developer.paychex.com/getting-started/overview
+  - type: JSONSchema
+    url: json-schema/paychex-companies-company-schema.json
+  - type: JSONLD
+    url: json-ld/paychex-companies-context.jsonld
+  - type: JSONSchema
+    url: json-schema/paychex-workers-worker-schema.json
+  - type: JSONLD
+    url: json-ld/paychex-workers-context.jsonld
+- aid: paychex-developer:paychex-developer-time-entries-api
+  name: Paychex Time Entries API
+  description: Time entry, punch, and time-worked submissions.
+  humanURL: https://developer.paychex.com/
+  baseURL: https://api.paychex.com
+  tags:
+  - Time Entries
+  properties:
+  - type: OpenAPI
+    url: openapi/paychex-developer-time-entries-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paychex.com/documentation
+  - type: GettingStarted
+    url: https://developer.paychex.com/getting-started/overview
+  - type: Authentication
+    url: https://developer.paychex.com/getting-started/overview
+  - type: JSONSchema
+    url: json-schema/paychex-companies-company-schema.json
+  - type: JSONLD
+    url: json-ld/paychex-companies-context.jsonld
+  - type: JSONSchema
+    url: json-schema/paychex-workers-worker-schema.json
+  - type: JSONLD
+    url: json-ld/paychex-workers-context.jsonld
+- aid: paychex-developer:paychex-developer-workers-api
+  name: Paychex Workers API
+  description: Employees and contractors for a Paychex Flex company.
+  humanURL: https://developer.paychex.com/
+  baseURL: https://api.paychex.com
+  tags:
+  - Workers
+  properties:
+  - type: OpenAPI
+    url: openapi/paychex-developer-workers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paychex.com/documentation
+  - type: GettingStarted
+    url: https://developer.paychex.com/getting-started/overview
+  - type: Authentication
+    url: https://developer.paychex.com/getting-started/overview
+  - type: JSONSchema
+    url: json-schema/paychex-companies-company-schema.json
+  - type: JSONLD
+    url: json-ld/paychex-companies-context.jsonld
+  - type: JSONSchema
+    url: json-schema/paychex-workers-worker-schema.json
+  - type: JSONLD
+    url: json-ld/paychex-workers-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/paychex-developer-agentic-access.yml
