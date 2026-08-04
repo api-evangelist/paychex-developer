@@ -1,0 +1,18 @@
+{
+  "provider": "paychex-developer",
+  "sources": [
+    "paychex-developer-companies-api-openapi.yml",
+    "paychex-developer-time-entries-api-openapi.yml",
+    "paychex-developer-workers-api-openapi.yml"
+  ],
+  "outputs": [
+    "paychex-developer-companies-api-openapi.yml",
+    "paychex-developer-time-entries-api-openapi.yml",
+    "paychex-developer-workers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
