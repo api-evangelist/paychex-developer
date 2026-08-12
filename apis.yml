@@ -133,13 +133,13 @@ common:
   - type: SupportContact
     url: https://developer.paychex.com/support
   - type: OpenAPI
-    url: openapi/paychex-payroll-companies-openapi.yml
+    url: openapi/_original/paychex-payroll-companies-openapi.yml
     title: Paychex Payroll Companies OpenAPI
   - type: OpenAPI
-    url: openapi/paychex-workers-openapi.yml
+    url: openapi/_original/paychex-workers-openapi.yml
     title: Paychex Workers OpenAPI
   - type: OpenAPI
-    url: openapi/paychex-time-openapi.yml
+    url: openapi/_original/paychex-time-openapi.yml
     title: Paychex Time OpenAPI
   - type: JSONSchema
     url: json-schema/paychex-companies-company-schema.json
