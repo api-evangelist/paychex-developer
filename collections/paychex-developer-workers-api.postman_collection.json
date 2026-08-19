@@ -1,0 +1,646 @@
+{
+  "item": [
+    {
+      "id": "66843eba-c6ea-4eb9-a581-78a29087fa49",
+      "name": "Workers",
+      "description": {
+        "content": "Employees and contractors for a Paychex Flex company.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0187c00a-8210-458f-ad84-ce1e9ce41382",
+          "name": "List Company Workers",
+          "request": {
+            "name": "List Company Workers",
+            "description": {
+              "content": "Return the collection of workers (employees and contractors) for a company that the registered application has been granted access to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies",
+                ":companyId",
+                "workers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) Paychex Flex company identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07ac4f67-559a-4dfc-bef2-b5706550e8e5",
+              "name": "Collection of workers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":companyId",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "companyId",
+                      "description": "(Required) Paychex Flex company identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metadata\": {\n    \"contentItemCount\": 5657,\n    \"totalContentItemCount\": 5627,\n    \"offset\": 6813,\n    \"limit\": 7771\n  },\n  \"content\": [\n    {\n      \"workerId\": \"string\",\n      \"companyId\": \"string\",\n      \"workerType\": \"string\",\n      \"workerStatus\": \"string\",\n      \"name\": {\n        \"givenName\": \"string\",\n        \"middleName\": \"string\",\n        \"familyName\": \"string\",\n        \"preferredName\": \"string\"\n      },\n      \"contact\": {\n        \"emailAddress\": \"G6iQNTR@dHYKThIegBdsNrPywpWBXIzQwEP.vfkz\",\n        \"phoneNumber\": \"string\",\n        \"address\": {\n          \"streetLineOne\": \"string\",\n          \"streetLineTwo\": \"string\",\n          \"city\": \"string\",\n          \"stateCode\": \"string\",\n          \"postalCode\": \"string\",\n          \"countryCode\": \"string\"\n        }\n      },\n      \"employment\": {\n        \"hireDate\": \"1972-09-26\",\n        \"terminationDate\": \"1959-11-15\",\n        \"jobTitle\": \"string\",\n        \"departmentCode\": \"string\",\n        \"payFrequency\": \"string\",\n        \"payType\": \"string\",\n        \"baseRate\": 3923.495494305318\n      }\n    },\n    {\n      \"workerId\": \"string\",\n      \"companyId\": \"string\",\n      \"workerType\": \"string\",\n      \"workerStatus\": \"string\",\n      \"name\": {\n        \"givenName\": \"string\",\n        \"middleName\": \"string\",\n        \"familyName\": \"string\",\n        \"preferredName\": \"string\"\n      },\n      \"contact\": {\n        \"emailAddress\": \"Z5d4F@TBStMsxPteRypxqrtyKnZ.drqs\",\n        \"phoneNumber\": \"string\",\n        \"address\": {\n          \"streetLineOne\": \"string\",\n          \"streetLineTwo\": \"string\",\n          \"city\": \"string\",\n          \"stateCode\": \"string\",\n          \"postalCode\": \"string\",\n          \"countryCode\": \"string\"\n        }\n      },\n      \"employment\": {\n        \"hireDate\": \"1949-03-02\",\n        \"terminationDate\": \"2017-04-16\",\n        \"jobTitle\": \"string\",\n        \"departmentCode\": \"string\",\n        \"payFrequency\": \"string\",\n        \"payType\": \"string\",\n        \"baseRate\": 7336.041640014375\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a128983a-68a4-4e39-9e9c-43cb49198bb8",
+              "name": "Missing or invalid OAuth 2.0 access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":companyId",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "companyId",
+                      "description": "(Required) Paychex Flex company identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "067bf16f-155f-4499-a603-acf7b8427c00",
+              "name": "Registered application is not authorized for this company resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":companyId",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "companyId",
+                      "description": "(Required) Paychex Flex company identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5deabd2f-f986-480d-9833-e1bd65d40ee7",
+              "name": "Rate limit exceeded; retry after the indicated interval.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":companyId",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "companyId",
+                      "description": "(Required) Paychex Flex company identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6e32040-03bb-44c7-a66c-8779e9e8fd51",
+          "name": "Get Company Worker",
+          "request": {
+            "name": "Get Company Worker",
+            "description": {
+              "content": "Retrieve a single worker (employee or contractor) by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies",
+                ":companyId",
+                "workers",
+                ":workerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workerId",
+                  "description": "(Required) Paychex Flex worker identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48b2c26b-fbdc-41c0-8a12-347fb6a93a1f",
+              "name": "Worker record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":companyId",
+                    "workers",
+                    ":workerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workerId",
+                      "description": "(Required) Paychex Flex worker identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"workerId\": \"string\",\n      \"companyId\": \"string\",\n      \"workerType\": \"string\",\n      \"workerStatus\": \"string\",\n      \"name\": {\n        \"givenName\": \"string\",\n        \"middleName\": \"string\",\n        \"familyName\": \"string\",\n        \"preferredName\": \"string\"\n      },\n      \"contact\": {\n        \"emailAddress\": \"gcE@MvX.jjh\",\n        \"phoneNumber\": \"string\",\n        \"address\": {\n          \"streetLineOne\": \"string\",\n          \"streetLineTwo\": \"string\",\n          \"city\": \"string\",\n          \"stateCode\": \"string\",\n          \"postalCode\": \"string\",\n          \"countryCode\": \"string\"\n        }\n      },\n      \"employment\": {\n        \"hireDate\": \"2015-07-31\",\n        \"terminationDate\": \"1982-02-20\",\n        \"jobTitle\": \"string\",\n        \"departmentCode\": \"string\",\n        \"payFrequency\": \"string\",\n        \"payType\": \"string\",\n        \"baseRate\": 5969.484678995593\n      }\n    },\n    {\n      \"workerId\": \"string\",\n      \"companyId\": \"string\",\n      \"workerType\": \"string\",\n      \"workerStatus\": \"string\",\n      \"name\": {\n        \"givenName\": \"string\",\n        \"middleName\": \"string\",\n        \"familyName\": \"string\",\n        \"preferredName\": \"string\"\n      },\n      \"contact\": {\n        \"emailAddress\": \"qqXNKTmgh@ndFVPscHrzPnvVVXDbxzYaiklNfVrcf.tfq\",\n        \"phoneNumber\": \"string\",\n        \"address\": {\n          \"streetLineOne\": \"string\",\n          \"streetLineTwo\": \"string\",\n          \"city\": \"string\",\n          \"stateCode\": \"string\",\n          \"postalCode\": \"string\",\n          \"countryCode\": \"string\"\n        }\n      },\n      \"employment\": {\n        \"hireDate\": \"1977-06-05\",\n        \"terminationDate\": \"1995-09-02\",\n        \"jobTitle\": \"string\",\n        \"departmentCode\": \"string\",\n        \"payFrequency\": \"string\",\n        \"payType\": \"string\",\n        \"baseRate\": 677.5522380856991\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c9fe416-58c7-4391-99ef-8c963c5300b4",
+              "name": "Missing or invalid OAuth 2.0 access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":companyId",
+                    "workers",
+                    ":workerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workerId",
+                      "description": "(Required) Paychex Flex worker identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f5521f7-719f-4324-aeb2-fb1f132fe63e",
+              "name": "Registered application is not authorized for this company resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":companyId",
+                    "workers",
+                    ":workerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workerId",
+                      "description": "(Required) Paychex Flex worker identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef99e398-9ce6-49db-a39c-8fa94b53ca32",
+              "name": "Requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":companyId",
+                    "workers",
+                    ":workerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workerId",
+                      "description": "(Required) Paychex Flex worker identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paychex.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.paychex.com/auth/oauth/v2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aae6cd6c-cef0-4204-ac6f-3190dcabe986",
+    "name": "Paychex Payroll Companies Workers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Paychex Payroll Companies API exposes the list of payroll-bearing companies that a registered Paychex application has been granted access to, along with each company's configuration. Companies are the root tenant resource for all other Paychex REST APIs — workers and time are nested underneath a company.\n\nContact Support:\n Name: Paychex Developer Program",
+      "type": "text/plain"
+    }
+  }
+}
