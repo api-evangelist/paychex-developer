@@ -29,7 +29,6 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
-image: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/image.png
 url: https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/apis.yml
 created: '2026-05-25'
 modified: '2026-05-25'
