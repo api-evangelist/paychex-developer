@@ -109,6 +109,8 @@ apis:
   - type: JSONLD
     url: json-ld/paychex-workers-context.jsonld
 common:
+  - type: Website
+    url: https://www.paychex.com/
   - type: AgenticAccess
     url: agentic-access/paychex-developer-agentic-access.yml
   - type: DomainSecurity
