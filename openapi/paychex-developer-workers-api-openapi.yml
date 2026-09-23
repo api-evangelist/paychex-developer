@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Paychex Payroll Companies Workers API
-  description: The Paychex Payroll Companies API exposes the list of payroll-bearing companies that a registered Paychex application has been granted access to, along with each company's configuration. Companies are the root tenant resource for all other Paychex REST APIs — workers and time are nested underneath a company.
+  title: Paychex Workers API
+  description: The Paychex Workers API provides access to employees and contractors inside a Paychex Flex company. Workers are nested under the company resource and expose personal data, employment status, pay rates, and work assignments.
   version: 1.0.0
   contact:
     name: Paychex Developer Program
@@ -91,97 +91,10 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    Forbidden:
-      description: Registered application is not authorized for this company resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 access token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    TooManyRequests:
-      description: Rate limit exceeded; retry after the indicated interval.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    EmploymentInfo:
-      type: object
-      properties:
-        hireDate:
-          type: string
-          format: date
-        terminationDate:
-          type: string
-          format: date
-        jobTitle:
-          type: string
-        departmentCode:
-          type: string
-        payFrequency:
-          type: string
-          description: e.g., WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY.
-        payType:
-          type: string
-          description: e.g., HOURLY, SALARY.
-        baseRate:
-          type: number
-          format: double
-    Worker:
-      type: object
-      description: A worker (employee or contractor) in a Paychex Flex company.
-      properties:
-        workerId:
-          type: string
-          description: Paychex Flex worker identifier.
-        companyId:
-          type: string
-          description: Identifier of the company the worker belongs to.
-        workerType:
-          type: string
-          description: Worker classification (EMPLOYEE, CONTRACTOR).
-        workerStatus:
-          type: string
-          description: Employment status (ACTIVE, TERMINATED, LEAVE).
-        name:
-          $ref: '#/components/schemas/PersonName'
-        contact:
-          $ref: '#/components/schemas/ContactInfo'
-        employment:
-          $ref: '#/components/schemas/EmploymentInfo'
     WorkerResponse:
       type: object
       properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/Worker'
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-        details:
-          type: string
-    WorkersResponse:
-      type: object
-      properties:
-        metadata:
-          $ref: '#/components/schemas/PageMetadata'
         content:
           type: array
           items:
@@ -207,6 +120,59 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/Address'
+    Worker:
+      type: object
+      description: A worker (employee or contractor) in a Paychex Flex company.
+      properties:
+        workerId:
+          type: string
+          description: Paychex Flex worker identifier.
+        companyId:
+          type: string
+          description: Identifier of the company the worker belongs to.
+        workerType:
+          type: string
+          description: Worker classification (EMPLOYEE, CONTRACTOR).
+        workerStatus:
+          type: string
+          description: Employment status (ACTIVE, TERMINATED, LEAVE).
+        name:
+          $ref: '#/components/schemas/PersonName'
+        contact:
+          $ref: '#/components/schemas/ContactInfo'
+        employment:
+          $ref: '#/components/schemas/EmploymentInfo'
+    EmploymentInfo:
+      type: object
+      properties:
+        hireDate:
+          type: string
+          format: date
+        terminationDate:
+          type: string
+          format: date
+        jobTitle:
+          type: string
+        departmentCode:
+          type: string
+        payFrequency:
+          type: string
+          description: e.g., WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY.
+        payType:
+          type: string
+          description: e.g., HOURLY, SALARY.
+        baseRate:
+          type: number
+          format: double
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
     Address:
       type: object
       properties:
@@ -233,6 +199,40 @@ components:
           type: string
         preferredName:
           type: string
+    WorkersResponse:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/PageMetadata'
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+  responses:
+    NotFound:
+      description: Requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded; retry after the indicated interval.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Registered application is not authorized for this company resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

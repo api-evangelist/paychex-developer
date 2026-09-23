@@ -1,9 +1,9 @@
 {
   "provider": "paychex-developer",
   "sources": [
-    "paychex-developer-companies-api-openapi.yml",
-    "paychex-developer-time-entries-api-openapi.yml",
-    "paychex-developer-workers-api-openapi.yml"
+    "_original/paychex-payroll-companies-openapi.yml",
+    "_original/paychex-time-openapi.yml",
+    "_original/paychex-workers-openapi.yml"
   ],
   "outputs": [
     "paychex-developer-companies-api-openapi.yml",
@@ -13,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "paychex-payroll-companies-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "paychex-time-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "paychex-workers-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "paychex-developer-companies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paychex-developer-time-entries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paychex-developer-workers-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
