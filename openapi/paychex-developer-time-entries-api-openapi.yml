@@ -48,32 +48,6 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
 components:
   schemas:
-    TimeEntriesRequest:
-      type: object
-      required:
-      - companyId
-      - entries
-      properties:
-        companyId:
-          type: string
-          description: Paychex Flex company identifier the entries apply to.
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeEntry'
-    TimeEntriesResponse:
-      type: object
-      properties:
-        accepted:
-          type: integer
-          description: Number of entries accepted for processing.
-        rejected:
-          type: integer
-          description: Number of entries rejected with validation errors.
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeEntryResult'
     TimeEntry:
       type: object
       required:
@@ -105,15 +79,19 @@ components:
           description: Department/labor allocation code.
         notes:
           type: string
-    Error:
+    TimeEntriesResponse:
       type: object
       properties:
-        code:
-          type: string
-        message:
-          type: string
-        details:
-          type: string
+        accepted:
+          type: integer
+          description: Number of entries accepted for processing.
+        rejected:
+          type: integer
+          description: Number of entries rejected with validation errors.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeEntryResult'
     TimeEntryResult:
       type: object
       properties:
@@ -127,6 +105,28 @@ components:
           description: ACCEPTED or REJECTED.
         message:
           type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+    TimeEntriesRequest:
+      type: object
+      required:
+      - companyId
+      - entries
+      properties:
+        companyId:
+          type: string
+          description: Paychex Flex company identifier the entries apply to.
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeEntry'
   responses:
     TooManyRequests:
       description: Rate limit exceeded; retry after the indicated interval.
@@ -134,14 +134,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Request payload failed validation.
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 access token.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 access token.
+    BadRequest:
+      description: Request payload failed validation.
       content:
         application/json:
           schema:
