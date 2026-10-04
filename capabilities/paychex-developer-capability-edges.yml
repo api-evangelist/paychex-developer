@@ -1,0 +1,35 @@
+slug: paychex-developer
+provider: Paychex
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Workers
+  spec_file: paychex-developer-workers-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.85
+  evidence: '''provides access to employees and contractors inside a Paychex Flex company ... expose personal
+    data, employment status, pay rates, and work assignments'' with schemas Worker, EmploymentInfo, PersonName'
+  reason: Employee master records including employment status and pay rates are core HR Operations (employee
+    records, payroll administration) under Human Capital Management.
+- tag: Time Entries
+  spec_file: paychex-developer-time-entries-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: '''submit time entries, punches, and time-worked totals for workers inside a Paychex Flex
+    company so they flow into Paychex Payroll processing'''
+  reason: Time and attendance capture feeding payroll processing is HR operations / payroll administration
+    within Human Capital Management.

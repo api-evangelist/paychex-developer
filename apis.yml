@@ -109,6 +109,9 @@ apis:
   - type: JSONLD
     url: json-ld/paychex-workers-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/paychex-developer-capability-edges.yml
+    name: Paychex Business Capability Map
   - type: Website
     url: https://www.paychex.com/
   - type: AgenticAccess
