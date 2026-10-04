@@ -92,22 +92,16 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    WorkerResponse:
+    ContactInfo:
       type: object
       properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/Worker'
-    Error:
-      type: object
-      properties:
-        code:
+        emailAddress:
           type: string
-        message:
+          format: email
+        phoneNumber:
           type: string
-        details:
-          type: string
+        address:
+          $ref: '#/components/schemas/Address'
     Address:
       type: object
       properties:
@@ -122,6 +116,15 @@ components:
         postalCode:
           type: string
         countryCode:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
           type: string
     Worker:
       type: object
@@ -145,17 +148,22 @@ components:
           $ref: '#/components/schemas/ContactInfo'
         employment:
           $ref: '#/components/schemas/EmploymentInfo'
-    PersonName:
+    WorkerResponse:
       type: object
       properties:
-        givenName:
-          type: string
-        middleName:
-          type: string
-        familyName:
-          type: string
-        preferredName:
-          type: string
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+    WorkersResponse:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/PageMetadata'
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
     EmploymentInfo:
       type: object
       properties:
@@ -178,25 +186,6 @@ components:
         baseRate:
           type: number
           format: double
-    WorkersResponse:
-      type: object
-      properties:
-        metadata:
-          $ref: '#/components/schemas/PageMetadata'
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/Worker'
-    ContactInfo:
-      type: object
-      properties:
-        emailAddress:
-          type: string
-          format: email
-        phoneNumber:
-          type: string
-        address:
-          $ref: '#/components/schemas/Address'
     PageMetadata:
       type: object
       properties:
@@ -208,15 +197,26 @@ components:
           type: integer
         limit:
           type: integer
+    PersonName:
+      type: object
+      properties:
+        givenName:
+          type: string
+        middleName:
+          type: string
+        familyName:
+          type: string
+        preferredName:
+          type: string
   responses:
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 access token.
+    TooManyRequests:
+      description: Rate limit exceeded; retry after the indicated interval.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Requested resource was not found.
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 access token.
       content:
         application/json:
           schema:
@@ -227,8 +227,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    TooManyRequests:
-      description: Rate limit exceeded; retry after the indicated interval.
+    NotFound:
+      description: Requested resource was not found.
       content:
         application/json:
           schema:
