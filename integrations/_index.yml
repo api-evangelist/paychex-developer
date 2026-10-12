@@ -526,7 +526,6 @@
   arazzo: null
 - slug: paychex-developer-wellhub
   label: Wellhub
-  partner: wellhub
   partner_name: Wellhub
   category: Paychex Platform
   type: marketplace
@@ -744,7 +743,6 @@
   arazzo: null
 - slug: paychex-developer-workstream
   label: Workstream
-  partner: workstream
   partner_name: Workstream
   category: Hiring & Onboarding
   type: marketplace
@@ -793,7 +791,6 @@
   arazzo: null
 - slug: paychex-developer-microsoft
   label: Microsoft
-  partner: microsoft
   partner_name: Microsoft
   category: Reporting & Analytics
   type: marketplace
@@ -1011,7 +1008,6 @@
   arazzo: null
 - slug: paychex-developer-xero
   label: Xero
-  partner: xero
   partner_name: Xero
   category: General Ledger
   type: marketplace
@@ -1024,7 +1020,6 @@
   arazzo: null
 - slug: paychex-developer-greenhouse
   label: Greenhouse
-  partner: greenhouse
   partner_name: Greenhouse
   category: Hiring & Onboarding
   type: marketplace
@@ -1097,7 +1092,6 @@
   arazzo: null
 - slug: paychex-developer-indeed
   label: Indeed
-  partner: indeed
   partner_name: Indeed
   category: Hiring & Onboarding
   type: marketplace
@@ -1316,7 +1310,6 @@
   arazzo: null
 - slug: paychex-developer-ashby
   label: Ashby
-  partner: ashby
   partner_name: Ashby
   category: Hiring & Onboarding
   type: marketplace
@@ -1365,7 +1358,6 @@
   arazzo: null
 - slug: paychex-developer-paradox
   label: Paradox
-  partner: paradox
   partner_name: Paradox
   category: Hiring & Onboarding
   type: marketplace
@@ -1402,7 +1394,6 @@
   arazzo: null
 - slug: paychex-developer-clover
   label: Clover
-  partner: clover
   partner_name: Clover
   category: Industry
   type: marketplace
@@ -1439,7 +1430,6 @@
   arazzo: null
 - slug: paychex-developer-engagedly
   label: Engagedly
-  partner: engagedly
   partner_name: Engagedly
   category: Paychex Platform
   type: marketplace
@@ -1597,7 +1587,6 @@
   arazzo: null
 - slug: paychex-developer-dailypay
   label: DailyPay
-  partner: dailypay
   partner_name: DailyPay
   category: Earned Wage Access
   type: marketplace
@@ -1742,7 +1731,6 @@
   arazzo: null
 - slug: paychex-developer-bamboohr
   label: BambooHR
-  partner: bamboohr
   partner_name: BambooHR
   category: Paychex Platform
   type: marketplace
@@ -1815,7 +1803,6 @@
   arazzo: null
 - slug: paychex-developer-alice
   label: Alice
-  partner: alice
   partner_name: Alice
   category: Paychex Platform
   type: marketplace
@@ -2045,7 +2032,6 @@
   arazzo: null
 - slug: paychex-developer-mindbody
   label: Mindbody
-  partner: mindbody
   partner_name: Mindbody
   category: Industry
   type: marketplace
@@ -2130,7 +2116,6 @@
   arazzo: null
 - slug: paychex-developer-7shifts
   label: 7Shifts
-  partner: 7shifts
   partner_name: 7Shifts
   category: Finance
   type: marketplace
@@ -2203,7 +2188,6 @@
   arazzo: null
 - slug: paychex-developer-connecteam
   label: Connecteam
-  partner: connecteam
   partner_name: Connecteam
   category: Reporting & Analytics
   type: marketplace
@@ -2216,7 +2200,6 @@
   arazzo: null
 - slug: paychex-developer-ourpeople
   label: OurPeople
-  partner: ourpeople
   partner_name: OurPeople
   category: Paychex Platform
   type: marketplace
@@ -2241,7 +2224,6 @@
   arazzo: null
 - slug: paychex-developer-when-i-work
   label: When I Work
-  partner: when-i-work
   partner_name: When I Work
   category: Paychex Platform
   type: marketplace
