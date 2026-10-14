@@ -1,7 +1,9 @@
 generated: '2026-10-12'
 method: searched
 checked:
+- clover/integrations/clover-integration-edges.yml
 - https://marketplace.paychex.com/
+- olo/integrations/olo-integration-edges.yml
 marketplace_apps:
 - marketplace: own
   channel: partner-built
@@ -2931,3 +2933,41 @@ edges:
   partner_domain: mindex.com
   detected_by: sweep-hr-stores.py
   detected: '2026-10-12'
+- partner_name: Clover (own)
+  partner: clover
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.clover.com/appmarket/apps/6V42XFJKTJ1S2
+  mirror_of: clover/integrations/clover-integration-edges.yml
+  apps:
+  - Paychex Time Clock Kiosk
+  - Paychex Flex Payroll
+  listing_count: 2
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: QUICK_SERVICE_RESTAURANT
+- partner_name: Olo (own)
+  partner: olo
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.olo.com/partners/paychex
+  mirror_of: olo/integrations/olo-integration-edges.yml
+  apps:
+  - Paychex
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Labor Management
+source:
+- clover/integrations/clover-integration-edges.yml
+- olo/integrations/olo-integration-edges.yml
