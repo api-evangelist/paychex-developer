@@ -82,6 +82,31 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    Forbidden:
+      description: Registered application is not authorized for this company resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded; retry after the indicated interval.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     CompaniesResponse:
       type: object
@@ -92,6 +117,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Company'
+    PageMetadata:
+      type: object
+      properties:
+        contentItemCount:
+          type: integer
+          description: Number of items returned in this page.
+        totalContentItemCount:
+          type: integer
+          description: Total number of items across all pages.
+        offset:
+          type: integer
+          description: Zero-based offset of this page.
+        limit:
+          type: integer
+          description: Page size used for this response.
     Error:
       type: object
       properties:
@@ -133,46 +173,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Company'
-    PageMetadata:
-      type: object
-      properties:
-        contentItemCount:
-          type: integer
-          description: Number of items returned in this page.
-        totalContentItemCount:
-          type: integer
-          description: Total number of items across all pages.
-        offset:
-          type: integer
-          description: Zero-based offset of this page.
-        limit:
-          type: integer
-          description: Page size used for this response.
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded; retry after the indicated interval.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 access token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: Registered application is not authorized for this company resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

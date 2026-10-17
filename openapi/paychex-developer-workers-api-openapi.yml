@@ -91,7 +91,54 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    Forbidden:
+      description: Registered application is not authorized for this company resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    TooManyRequests:
+      description: Rate limit exceeded; retry after the indicated interval.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid OAuth 2.0 access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    PageMetadata:
+      type: object
+      properties:
+        contentItemCount:
+          type: integer
+        totalContentItemCount:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+    PersonName:
+      type: object
+      properties:
+        givenName:
+          type: string
+        middleName:
+          type: string
+        familyName:
+          type: string
+        preferredName:
+          type: string
     ContactInfo:
       type: object
       properties:
@@ -102,6 +149,37 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/Address'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+    EmploymentInfo:
+      type: object
+      properties:
+        hireDate:
+          type: string
+          format: date
+        terminationDate:
+          type: string
+          format: date
+        jobTitle:
+          type: string
+        departmentCode:
+          type: string
+        payFrequency:
+          type: string
+          description: e.g., WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY.
+        payType:
+          type: string
+          description: e.g., HOURLY, SALARY.
+        baseRate:
+          type: number
+          format: double
     Address:
       type: object
       properties:
@@ -116,15 +194,6 @@ components:
         postalCode:
           type: string
         countryCode:
-          type: string
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-        details:
           type: string
     Worker:
       type: object
@@ -164,75 +233,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Worker'
-    EmploymentInfo:
-      type: object
-      properties:
-        hireDate:
-          type: string
-          format: date
-        terminationDate:
-          type: string
-          format: date
-        jobTitle:
-          type: string
-        departmentCode:
-          type: string
-        payFrequency:
-          type: string
-          description: e.g., WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY.
-        payType:
-          type: string
-          description: e.g., HOURLY, SALARY.
-        baseRate:
-          type: number
-          format: double
-    PageMetadata:
-      type: object
-      properties:
-        contentItemCount:
-          type: integer
-        totalContentItemCount:
-          type: integer
-        offset:
-          type: integer
-        limit:
-          type: integer
-    PersonName:
-      type: object
-      properties:
-        givenName:
-          type: string
-        middleName:
-          type: string
-        familyName:
-          type: string
-        preferredName:
-          type: string
-  responses:
-    TooManyRequests:
-      description: Rate limit exceeded; retry after the indicated interval.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid OAuth 2.0 access token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: Registered application is not authorized for this company resource.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2
