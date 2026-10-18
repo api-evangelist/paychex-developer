@@ -2284,5 +2284,5 @@
     - connectors/applications/paychex
     vendor_link: https://www.paychex.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
