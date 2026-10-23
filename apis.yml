@@ -109,6 +109,8 @@ apis:
   - type: JSONLD
     url: json-ld/paychex-workers-context.jsonld
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/paychex/overview
   - type: CapabilityMap
     url: capabilities/paychex-developer-capability-edges.yml
     name: Paychex Business Capability Map
