@@ -1,338 +1,378 @@
 {
+  "info": {
+    "_postman_id": "379184bc-1f71-4fa4-9e96-4018cf7dd2a3",
+    "name": "Paychex Time Time Entries API",
+    "description": "The Paychex Time API allows third-party time and attendance vendors to submit time entries, punches, and time-worked totals for workers inside a Paychex Flex company so they flow into Paychex Payroll processing.\n\nContact Support:\n Name: Paychex Developer Program",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:17:15.000Z",
+    "updatedAt": "2026-10-22T01:17:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-379184bc-1f71-4fa4-9e96-4018cf7dd2a3"
+  },
   "item": [
     {
-      "id": "3ea534e2-02c7-4657-9554-aa1ee560dea9",
-      "name": "Time Entries",
-      "description": {
-        "content": "Time entry, punch, and time-worked submissions.",
-        "type": "text/plain"
-      },
+      "name": "time",
       "item": [
         {
-          "id": "a73549bd-098e-4f4c-a8bf-e8f9fdbd2d5a",
-          "name": "Submit Time Entries",
-          "request": {
-            "name": "Submit Time Entries",
-            "description": {
-              "content": "Submit one or more time entries (worked hours, earnings categories, and labor allocations) for workers inside a Paychex Flex company.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "time",
-                "v1",
-                "timeentries"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "8320241d-2be1-46f3-9852-4b76c87dd50d",
-              "name": "Time entries accepted for payroll processing.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "time",
-                    "v1",
-                    "timeentries"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"1985-04-23\",\n      \"hours\": 5133.962943846594,\n      \"earningType\": \"string\",\n      \"rateOverride\": 5224.08209358469,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"2005-11-08\",\n      \"hours\": 1205.221055421054,\n      \"earningType\": \"string\",\n      \"rateOverride\": 241.17663760616526,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
+              "name": "timeentries",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Submit Time Entries",
+                  "id": "33a342cf-4488-4071-b123-3de7e145f25e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/time/v1/timeentries",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "time",
+                        "v1",
+                        "timeentries"
+                      ]
+                    },
+                    "description": "Submit one or more time entries (worked hours, earnings categories, and labor allocations) for workers inside a Paychex Flex company."
+                  },
+                  "response": [
+                    {
+                      "id": "0942332c-1a57-4b32-b139-97d01e99b448",
+                      "name": "Time entries accepted for payroll processing.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/time/v1/timeentries",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "time",
+                            "v1",
+                            "timeentries"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"accepted\": \"<integer>\",\n  \"rejected\": \"<integer>\",\n  \"results\": [\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"status\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"status\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:17:16.000Z",
+                      "updatedAt": "2026-10-22T01:17:16.000Z",
+                      "uid": "35240-0942332c-1a57-4b32-b139-97d01e99b448"
+                    },
+                    {
+                      "id": "421271b1-9f21-48c2-8d40-579bbf2f00c5",
+                      "name": "Request payload failed validation.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/time/v1/timeentries",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "time",
+                            "v1",
+                            "timeentries"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:17:16.000Z",
+                      "updatedAt": "2026-10-22T01:17:16.000Z",
+                      "uid": "35240-421271b1-9f21-48c2-8d40-579bbf2f00c5"
+                    },
+                    {
+                      "id": "a88362a8-6109-4d46-b918-44cd64f746ff",
+                      "name": "Missing or invalid OAuth 2.0 access token.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/time/v1/timeentries",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "time",
+                            "v1",
+                            "timeentries"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:17:16.000Z",
+                      "updatedAt": "2026-10-22T01:17:16.000Z",
+                      "uid": "35240-a88362a8-6109-4d46-b918-44cd64f746ff"
+                    },
+                    {
+                      "id": "d23f3750-c255-4a1e-9a37-53f06943d2f3",
+                      "name": "Registered application is not authorized for this company resource.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/time/v1/timeentries",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "time",
+                            "v1",
+                            "timeentries"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:17:16.000Z",
+                      "updatedAt": "2026-10-22T01:17:16.000Z",
+                      "uid": "35240-d23f3750-c255-4a1e-9a37-53f06943d2f3"
+                    },
+                    {
+                      "id": "8bfa3dcf-71ca-48d4-b3c9-6a2b550e468d",
+                      "name": "Rate limit exceeded; retry after the indicated interval.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"workDate\": \"<date>\",\n      \"hours\": \"<double>\",\n      \"earningType\": \"<string>\",\n      \"rateOverride\": \"<double>\",\n      \"departmentCode\": \"<string>\",\n      \"notes\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/time/v1/timeentries",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "time",
+                            "v1",
+                            "timeentries"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:17:16.000Z",
+                      "updatedAt": "2026-10-22T01:17:16.000Z",
+                      "uid": "35240-8bfa3dcf-71ca-48d4-b3c9-6a2b550e468d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:17:16.000Z",
+                  "updatedAt": "2026-10-22T01:17:16.000Z",
+                  "uid": "35240-33a342cf-4488-4071-b123-3de7e145f25e"
                 }
               ],
-              "body": "{\n  \"accepted\": 4597,\n  \"rejected\": 9179,\n  \"results\": [\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"2011-01-22\",\n      \"status\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"1959-05-05\",\n      \"status\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "35407f9a-dc5e-4379-a8b3-cf5276befcb2",
-              "name": "Request payload failed validation.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "time",
-                    "v1",
-                    "timeentries"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"1985-04-23\",\n      \"hours\": 5133.962943846594,\n      \"earningType\": \"string\",\n      \"rateOverride\": 5224.08209358469,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"2005-11-08\",\n      \"hours\": 1205.221055421054,\n      \"earningType\": \"string\",\n      \"rateOverride\": 241.17663760616526,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "07eb1cb5-3972-4cd3-a3a4-90699e3a46a0",
-              "name": "Missing or invalid OAuth 2.0 access token.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "time",
-                    "v1",
-                    "timeentries"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"1985-04-23\",\n      \"hours\": 5133.962943846594,\n      \"earningType\": \"string\",\n      \"rateOverride\": 5224.08209358469,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"2005-11-08\",\n      \"hours\": 1205.221055421054,\n      \"earningType\": \"string\",\n      \"rateOverride\": 241.17663760616526,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c8263c06-1a1e-4320-9474-d5f2a7f57144",
-              "name": "Registered application is not authorized for this company resource.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "time",
-                    "v1",
-                    "timeentries"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"1985-04-23\",\n      \"hours\": 5133.962943846594,\n      \"earningType\": \"string\",\n      \"rateOverride\": 5224.08209358469,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"2005-11-08\",\n      \"hours\": 1205.221055421054,\n      \"earningType\": \"string\",\n      \"rateOverride\": 241.17663760616526,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0b543624-3c6e-4f96-9741-31351166e3c9",
-              "name": "Rate limit exceeded; retry after the indicated interval.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "time",
-                    "v1",
-                    "timeentries"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"companyId\": \"<string>\",\n  \"entries\": [\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"1985-04-23\",\n      \"hours\": 5133.962943846594,\n      \"earningType\": \"string\",\n      \"rateOverride\": 5224.08209358469,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"workerId\": \"string\",\n      \"workDate\": \"2005-11-08\",\n      \"hours\": 1205.221055421054,\n      \"earningType\": \"string\",\n      \"rateOverride\": 241.17663760616526,\n      \"departmentCode\": \"string\",\n      \"notes\": \"string\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "1b74b5af-d760-42ec-a7c8-021978b23ef9",
+              "createdAt": "2026-10-22T01:17:16.000Z",
+              "updatedAt": "2026-10-22T01:17:16.000Z",
+              "uid": "35240-1b74b5af-d760-42ec-a7c8-021978b23ef9"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "3ac2c468-d78b-4aa0-969e-00d056711a73",
+          "createdAt": "2026-10-22T01:17:16.000Z",
+          "updatedAt": "2026-10-22T01:17:16.000Z",
+          "uid": "35240-3ac2c468-d78b-4aa0-969e-00d056711a73"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.paychex.com",
-      "key": "baseUrl"
+      "id": "0781e64c-d334-4879-acef-33ec38e31c72",
+      "createdAt": "2026-10-22T01:17:16.000Z",
+      "updatedAt": "2026-10-22T01:17:16.000Z",
+      "uid": "35240-0781e64c-d334-4879-acef-33ec38e31c72"
     }
   ],
   "auth": {
@@ -340,21 +380,20 @@
     "oauth2": [
       {
         "key": "accessTokenUrl",
-        "value": "https://api.paychex.com/auth/oauth/v2/token"
+        "value": "https://api.paychex.com/auth/oauth/v2/token",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "aba9d185-52ae-4452-8319-093132f71635",
-    "name": "Paychex Payroll Companies Time Entries API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Paychex Payroll Companies API exposes the list of payroll-bearing companies that a registered Paychex application has been granted access to, along with each company's configuration. Companies are the root tenant resource for all other Paychex REST APIs — workers and time are nested underneath a company.\n\nContact Support:\n Name: Paychex Developer Program",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paychex.com"
     }
-  }
+  ]
 }

@@ -1,531 +1,523 @@
 {
+  "info": {
+    "_postman_id": "91bbea5b-c9f1-4ed6-b758-1de21cb792e9",
+    "name": "Paychex Payroll Companies API",
+    "description": "The Paychex Payroll Companies API exposes the list of payroll-bearing companies that a registered Paychex application has been granted access to, along with each company's configuration. Companies are the root tenant resource for all other Paychex REST APIs \u2014 workers and time are nested underneath a company.\n\nContact Support:\n Name: Paychex Developer Program",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:17:04.000Z",
+    "updatedAt": "2026-10-22T01:17:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-91bbea5b-c9f1-4ed6-b758-1de21cb792e9"
+  },
   "item": [
     {
-      "id": "def22670-9b84-40a5-a38c-3bd79fd14bfc",
-      "name": "Companies",
-      "description": {
-        "content": "Companies available to the registered application.",
-        "type": "text/plain"
-      },
+      "name": "companies",
       "item": [
         {
-          "id": "c631660c-01a2-4028-89ad-6841314069de",
+          "name": "{companyId}",
+          "item": [
+            {
+              "name": "Get Company by ID",
+              "id": "e73c52c2-7537-4c5c-8fb9-3e5dbc216f71",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/companies/:companyId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies",
+                    ":companyId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ac68c0dc-282c-4142-8810-9227e3613b69",
+                      "key": "companyId",
+                      "value": "<string>",
+                      "description": "(Required) Paychex Flex company identifier."
+                    }
+                  ]
+                },
+                "description": "Retrieve a single Paychex Flex company by its identifier."
+              },
+              "response": [
+                {
+                  "id": "25517cc3-c861-49f5-93cd-58817a52db5b",
+                  "name": "Company record.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/:companyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        ":companyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "companyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"content\": [\n    {\n      \"companyId\": \"<string>\",\n      \"displayId\": \"<string>\",\n      \"legalName\": \"<string>\",\n      \"dba\": \"<string>\",\n      \"federalEin\": \"<string>\",\n      \"status\": \"<string>\",\n      \"clientType\": \"<string>\"\n    },\n    {\n      \"companyId\": \"<string>\",\n      \"displayId\": \"<string>\",\n      \"legalName\": \"<string>\",\n      \"dba\": \"<string>\",\n      \"federalEin\": \"<string>\",\n      \"status\": \"<string>\",\n      \"clientType\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T01:17:04.000Z",
+                  "updatedAt": "2026-10-22T01:17:04.000Z",
+                  "uid": "35240-25517cc3-c861-49f5-93cd-58817a52db5b"
+                },
+                {
+                  "id": "8e20f548-b887-4ab4-a441-a5e2967bfcbf",
+                  "name": "Missing or invalid OAuth 2.0 access token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/:companyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        ":companyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "companyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T01:17:04.000Z",
+                  "updatedAt": "2026-10-22T01:17:04.000Z",
+                  "uid": "35240-8e20f548-b887-4ab4-a441-a5e2967bfcbf"
+                },
+                {
+                  "id": "5e98343c-fa14-4151-9c9f-7e68be3af40e",
+                  "name": "Registered application is not authorized for this company resource.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/:companyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        ":companyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "companyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T01:17:04.000Z",
+                  "updatedAt": "2026-10-22T01:17:04.000Z",
+                  "uid": "35240-5e98343c-fa14-4151-9c9f-7e68be3af40e"
+                },
+                {
+                  "id": "ce0d30f0-eb2f-4898-83da-1ffddec46a2f",
+                  "name": "Requested resource was not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/companies/:companyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "companies",
+                        ":companyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "companyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T01:17:04.000Z",
+                  "updatedAt": "2026-10-22T01:17:04.000Z",
+                  "uid": "35240-ce0d30f0-eb2f-4898-83da-1ffddec46a2f"
+                }
+              ],
+              "createdAt": "2026-10-22T01:17:04.000Z",
+              "updatedAt": "2026-10-22T01:17:04.000Z",
+              "uid": "35240-e73c52c2-7537-4c5c-8fb9-3e5dbc216f71"
+            }
+          ],
+          "id": "d7294005-cfc8-442f-9c09-0b53f78a8f06",
+          "createdAt": "2026-10-22T01:17:04.000Z",
+          "updatedAt": "2026-10-22T01:17:04.000Z",
+          "uid": "35240-d7294005-cfc8-442f-9c09-0b53f78a8f06"
+        },
+        {
           "name": "List Companies",
+          "id": "edc38662-dd9e-426b-aac6-7c3ea2539c8b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "List Companies",
-            "description": {
-              "content": "Return the collection of companies that the registered application has been granted access to. Used as the discovery endpoint for downstream Workers and Time calls.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/companies?offset=0&limit=25",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "companies"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "Zero-based offset used for pagination.",
                   "key": "offset",
-                  "value": "0",
-                  "description": "Zero-based offset used for pagination."
+                  "value": "0"
                 },
                 {
-                  "disabled": false,
+                  "description": "Maximum number of records to return per page (default 25, max 100).",
                   "key": "limit",
-                  "value": "25",
-                  "description": "Maximum number of records to return per page (default 25, max 100)."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "414b4563-a1ee-4881-aead-b4f37b1a6af7",
-              "name": "Collection of companies.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"metadata\": {\n    \"contentItemCount\": 1465,\n    \"totalContentItemCount\": 8471,\n    \"offset\": 124,\n    \"limit\": 1699\n  },\n  \"content\": [\n    {\n      \"companyId\": \"string\",\n      \"displayId\": \"string\",\n      \"legalName\": \"string\",\n      \"dba\": \"string\",\n      \"federalEin\": \"string\",\n      \"status\": \"string\",\n      \"clientType\": \"string\"\n    },\n    {\n      \"companyId\": \"string\",\n      \"displayId\": \"string\",\n      \"legalName\": \"string\",\n      \"dba\": \"string\",\n      \"federalEin\": \"string\",\n      \"status\": \"string\",\n      \"clientType\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e49dafd8-c9b4-4537-b746-9a59ed085c32",
-              "name": "Missing or invalid OAuth 2.0 access token.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "05b07a15-7587-447d-a89c-892d33ec6b8d",
-              "name": "Registered application is not authorized for this company resource.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4198be81-e8bf-4d3f-8b39-7fb14b7ad4a2",
-              "name": "Rate limit exceeded; retry after the indicated interval.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "25"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Too Many Requests",
-              "code": 429,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "12554906-9433-4885-84c1-5cc1bd8191dd",
-          "name": "Get Company by ID",
-          "request": {
-            "name": "Get Company by ID",
-            "description": {
-              "content": "Retrieve a single Paychex Flex company by its identifier.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "companies",
-                ":companyId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) Paychex Flex company identifier."
+                  "value": "25"
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Return the collection of companies that the registered application has been granted access to. Used as the discovery endpoint for downstream Workers and Time calls."
           },
           "response": [
             {
-              "id": "f529c29c-89a4-410e-a029-79cf6292d0d8",
-              "name": "Company record.",
+              "id": "405d9d00-d66e-4080-bfd4-00b7d2ac4d1a",
+              "name": "Collection of companies.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    ":companyId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) Paychex Flex company identifier."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/companies?offset=0&limit=25",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies"
+                  ],
+                  "query": [
+                    {
+                      "description": "Zero-based offset used for pagination.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum number of records to return per page (default 25, max 100).",
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"content\": [\n    {\n      \"companyId\": \"string\",\n      \"displayId\": \"string\",\n      \"legalName\": \"string\",\n      \"dba\": \"string\",\n      \"federalEin\": \"string\",\n      \"status\": \"string\",\n      \"clientType\": \"string\"\n    },\n    {\n      \"companyId\": \"string\",\n      \"displayId\": \"string\",\n      \"legalName\": \"string\",\n      \"dba\": \"string\",\n      \"federalEin\": \"string\",\n      \"status\": \"string\",\n      \"clientType\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"metadata\": {\n    \"contentItemCount\": \"<integer>\",\n    \"totalContentItemCount\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\"\n  },\n  \"content\": [\n    {\n      \"companyId\": \"<string>\",\n      \"displayId\": \"<string>\",\n      \"legalName\": \"<string>\",\n      \"dba\": \"<string>\",\n      \"federalEin\": \"<string>\",\n      \"status\": \"<string>\",\n      \"clientType\": \"<string>\"\n    },\n    {\n      \"companyId\": \"<string>\",\n      \"displayId\": \"<string>\",\n      \"legalName\": \"<string>\",\n      \"dba\": \"<string>\",\n      \"federalEin\": \"<string>\",\n      \"status\": \"<string>\",\n      \"clientType\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:17:04.000Z",
+              "updatedAt": "2026-10-22T01:17:04.000Z",
+              "uid": "35240-405d9d00-d66e-4080-bfd4-00b7d2ac4d1a"
             },
             {
-              "id": "1c423716-dc11-413a-ae06-0e47b2a57dd0",
+              "id": "d70662c9-359b-488a-b7fd-bf8158b5fded",
               "name": "Missing or invalid OAuth 2.0 access token.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    ":companyId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) Paychex Flex company identifier."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/companies?offset=0&limit=25",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies"
+                  ],
+                  "query": [
+                    {
+                      "description": "Zero-based offset used for pagination.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum number of records to return per page (default 25, max 100).",
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:17:04.000Z",
+              "updatedAt": "2026-10-22T01:17:04.000Z",
+              "uid": "35240-d70662c9-359b-488a-b7fd-bf8158b5fded"
             },
             {
-              "id": "42494c5d-7a7e-411f-87f3-9141c34c6fa4",
+              "id": "30fa457d-1e2c-4111-af9c-d98fe1e0b30f",
               "name": "Registered application is not authorized for this company resource.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    ":companyId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) Paychex Flex company identifier."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/companies?offset=0&limit=25",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies"
+                  ],
+                  "query": [
+                    {
+                      "description": "Zero-based offset used for pagination.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum number of records to return per page (default 25, max 100).",
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ]
+                }
               },
               "status": "Forbidden",
               "code": 403,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:17:04.000Z",
+              "updatedAt": "2026-10-22T01:17:04.000Z",
+              "uid": "35240-30fa457d-1e2c-4111-af9c-d98fe1e0b30f"
             },
             {
-              "id": "7a242fce-38f1-4af3-b691-ce88af259209",
-              "name": "Requested resource was not found.",
+              "id": "b719375f-1084-407e-b4a8-523a8ca380aa",
+              "name": "Rate limit exceeded; retry after the indicated interval.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "companies",
-                    ":companyId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) Paychex Flex company identifier."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/companies?offset=0&limit=25",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "companies"
+                  ],
+                  "query": [
+                    {
+                      "description": "Zero-based offset used for pagination.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum number of records to return per page (default 25, max 100).",
+                      "key": "limit",
+                      "value": "25"
+                    }
+                  ]
+                }
               },
-              "status": "Not Found",
-              "code": 404,
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"details\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:17:04.000Z",
+              "updatedAt": "2026-10-22T01:17:04.000Z",
+              "uid": "35240-b719375f-1084-407e-b4a8-523a8ca380aa"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:17:04.000Z",
+          "updatedAt": "2026-10-22T01:17:04.000Z",
+          "uid": "35240-edc38662-dd9e-426b-aac6-7c3ea2539c8b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.paychex.com",
-      "key": "baseUrl"
+      "id": "3a3c2ad4-60c0-4a08-896d-0f816393aabc",
+      "createdAt": "2026-10-22T01:17:04.000Z",
+      "updatedAt": "2026-10-22T01:17:04.000Z",
+      "uid": "35240-3a3c2ad4-60c0-4a08-896d-0f816393aabc"
     }
   ],
   "auth": {
@@ -533,21 +525,20 @@
     "oauth2": [
       {
         "key": "accessTokenUrl",
-        "value": "https://api.paychex.com/auth/oauth/v2/token"
+        "value": "https://api.paychex.com/auth/oauth/v2/token",
+        "type": "string"
       },
       {
         "key": "grant_type",
-        "value": "client_credentials"
+        "value": "client_credentials",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "538cd2d8-e36d-461e-b607-6b8ae2cdaad0",
-    "name": "Paychex Payroll Companies API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Paychex Payroll Companies API exposes the list of payroll-bearing companies that a registered Paychex application has been granted access to, along with each company's configuration. Companies are the root tenant resource for all other Paychex REST APIs — workers and time are nested underneath a company.\n\nContact Support:\n Name: Paychex Developer Program",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paychex.com"
     }
-  }
+  ]
 }
