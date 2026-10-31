@@ -1,4 +1,4 @@
-# Paychex (paychex-developer)
+# Paychex
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,137 +66,176 @@
 
 Paychex, Inc. (NASDAQ: PAYX) is a Rochester, New York-based provider of integrated payroll, human resources, retirement, insurance, and benefits outsourcing services for small- and medium-sized businesses, with developer APIs exposed through the Paychex Flex platform.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/paychex-developer/refs/heads/main/apis.yml)
+**Areas:** Benefits · HCM · Human Resources · Paychex Flex · Payroll · Time and Attendance · Workforce · Fortune 1000 · Employee Benefits
 
-## Scope
+## Paychex on APIs.io
 
-- **Access:** 3rd-Party
+Everything profiled for Paychex is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/paychex-developer/](https://apis.io/providers/paychex-developer/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Benefits
-- HCM
-- HR
-- Paychex Flex
-- Payroll
-- Time and Attendance
-- Workforce
+- [Paychex Companies API](https://apis.io/apis/paychex-developer/paychex-developer-companies-api/) — Companies available to the registered application.
+- [Paychex Time Entries API](https://apis.io/apis/paychex-developer/paychex-developer-time-entries-api/) — Time entry, punch, and time-worked submissions.
+- [Paychex Workers API](https://apis.io/apis/paychex-developer/paychex-developer-workers-api/) — Employees and contractors for a Paychex Flex company.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Paychex Payroll Companies API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Paychex Payroll Companies API exposes the list of payroll-bearing companies that a registered Paychex application has been granted access to, along with each company's configuration, pay components, deductions, earnings, and worksite data. It is the entry point to every other Paychex REST API — workers and time are scoped underneath a company resource.
+- [Paychex Developer Agentic Access](https://apis.io/agentic-access/paychex-developer/paychex-developer-agentic-access/)
 
-- **Human URL:** [https://developer.paychex.com/](https://developer.paychex.com/)
-- **Base URL:** `https://api.paychex.com`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- Companies
-- Employer
-- HCM
-- Paychex Flex
-- Payroll
+- [Paychex Company](https://apis.io/schemas/paychex-developer/paychex-companies-company/)
+- [Paychex Time Entry](https://apis.io/schemas/paychex-developer/paychex-time-timeentry/)
+- [Paychex Worker](https://apis.io/schemas/paychex-developer/paychex-workers-worker/)
 
-#### Properties
+#### JSON Structure (2)
 
+Data models expressed in JSON Structure.
+
+- [Paychex Companies Company Structure](https://apis.io/json-structure/paychex-developer/paychex-companies-company-structure/)
+- [Paychex Workers Worker Structure](https://apis.io/json-structure/paychex-developer/paychex-workers-worker-structure/)
+
+#### JSON-LD (3)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Paychex Companies Context](https://apis.io/jsonld/paychex-developer/paychex-companies-context/)
+- [Paychex Developer Context](https://apis.io/jsonld/paychex-developer/paychex-developer-context/)
+- [Paychex Workers Context](https://apis.io/jsonld/paychex-developer/paychex-workers-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Paychex Developer Vocabulary](https://apis.io/vocabularies/paychex-developer/paychex-developer-vocabulary/)
+
+#### Examples (6)
+
+Example requests and responses.
+
+- [Paychex Companies Getcompany Example](https://apis.io/examples/paychex-developer/paychex-companies-getcompany-example/)
+- [Paychex Companies Listcompanies Example](https://apis.io/examples/paychex-developer/paychex-companies-listcompanies-example/)
+- [Paychex Time Createtimeentries Request Example](https://apis.io/examples/paychex-developer/paychex-time-createtimeentries-request-example/)
+- [Paychex Time Createtimeentries Response Example](https://apis.io/examples/paychex-developer/paychex-time-createtimeentries-response-example/)
+- [Paychex Workers Getcompanyworker Example](https://apis.io/examples/paychex-developer/paychex-workers-getcompanyworker-example/)
+- [Paychex Workers Listcompanyworkers Example](https://apis.io/examples/paychex-developer/paychex-workers-listcompanyworkers-example/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Paychex Payroll Companies API](https://apis.io/collections/paychex-developer/open-paychex-developer-companies-api/)
+- [Paychex Payroll Companies Time Entries API](https://apis.io/collections/paychex-developer/open-paychex-developer-time-entries-api/)
+- [Paychex Payroll Companies Workers API](https://apis.io/collections/paychex-developer/open-paychex-developer-workers-api/)
+- [Paychex Payroll Companies API](https://apis.io/collections/paychex-developer/open-paychex-payroll-companies/)
+- [Paychex Time API](https://apis.io/collections/paychex-developer/open-paychex-time/)
+- [Paychex Workers API](https://apis.io/collections/paychex-developer/open-paychex-workers/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Paychex — jsonschema rules](https://apis.io/rules/paychex-developer/paychex-developer-jsonschema-spectral-rules/)
+- [Paychex API Rules](https://apis.io/rules/paychex-developer/paychex-developer-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Paychex Developer Authentication](https://apis.io/security/paychex-developer/paychex-developer-authentication/)
+- [Paychex Developer Domain Security](https://apis.io/security/paychex-developer/paychex-developer-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Paychex Developer Scopes](https://apis.io/scopes/paychex-developer/paychex-developer-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Paychex Developer Plans Pricing](https://apis.io/plans/paychex-developer/paychex-developer-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Paychex Developer Rate Limits](https://apis.io/rate-limits/paychex-developer/paychex-developer-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Paychex Developer Finops](https://apis.io/finops/paychex-developer/paychex-developer-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.paychex.com/)
 - [Documentation](https://developer.paychex.com/documentation)
-- [Getting Started](https://developer.paychex.com/getting-started/overview)
-- [Authentication](https://developer.paychex.com/getting-started/overview)
-- [OpenAPI](openapi/paychex-payroll-companies-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paychex-payroll-companies.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paychex-payroll-companies.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paychex-companies-company-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/paychex-companies-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-
-### Paychex Workers API
-
-The Paychex Workers API provides access to employee and contractor records inside a Paychex Flex company — including personal details, employment status, pay rates, work assignments, and lifecycle events such as hire and termination. Workers are addressed as a sub-resource of a company (`/companies/{companyId}/workers`).
-
-- **Human URL:** [https://developer.paychex.com/](https://developer.paychex.com/)
-- **Base URL:** `https://api.paychex.com`
-
-#### Tags
-
-- Employees
-- HCM
-- HR
-- Paychex Flex
-- Workers
-- Workforce
-
-#### Properties
-
-- [Documentation](https://developer.paychex.com/documentation)
-- [Getting Started](https://developer.paychex.com/getting-started/overview)
-- [Authentication](https://developer.paychex.com/getting-started/overview)
-- [OpenAPI](openapi/paychex-workers-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paychex-workers.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paychex-workers.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paychex-workers-worker-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/paychex-workers-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-
-### Paychex Time API
-
-The Paychex Time API enables third-party time and attendance systems to submit time entry, punch, and time-worked data for workers inside a Paychex Flex company so it can be consumed by Paychex Payroll. Operations are versioned under `/time/v1/` and are typically scoped per company and worker.
-
-- **Human URL:** [https://developer.paychex.com/](https://developer.paychex.com/)
-- **Base URL:** `https://api.paychex.com`
-
-#### Tags
-
-- Attendance
-- Paychex Flex
-- Payroll
-- Time
-- Time and Attendance
-- Workforce Management
-
-#### Properties
-
-- [Documentation](https://developer.paychex.com/documentation)
-- [Getting Started](https://developer.paychex.com/getting-started/overview)
-- [Authentication](https://developer.paychex.com/getting-started/overview)
-- [OpenAPI](openapi/paychex-time-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paychex-time.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paychex-time.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://developer.paychex.com/)
-- [Documentation](https://developer.paychex.com/documentation)
-- [Getting Started](https://developer.paychex.com/getting-started/overview)
-- [Authentication](https://developer.paychex.com/getting-started/overview)
-- [GitHub Organization](https://github.com/paychex)
-- [LinkedIn](https://www.linkedin.com/company/paychex)
-- [X (Twitter)](https://x.com/Paychex)
-- [Facebook](https://www.facebook.com/Paychex)
-- [YouTube](https://www.youtube.com/user/PaychexInc)
+- [Getting started](https://developer.paychex.com/getting-started/overview)
 - [Blog](https://www.paychex.com/articles)
-- [Newsroom](https://www.paychex.com/newsroom)
-- [Investor Relations](https://investor.paychex.com/)
-- [Support Contact](https://developer.paychex.com/support)
-- [OpenAPI](openapi/paychex-payroll-companies-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [OpenAPI](openapi/paychex-workers-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [OpenAPI](openapi/paychex-time-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](json-schema/paychex-companies-company-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/paychex-workers-worker-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/paychex-developer-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Plans](plans/paychex-developer-plans-pricing.yml)
-- [Rate Limits](rate-limits/paychex-developer-rate-limits.yml)
-- [Fin Ops](finops/paychex-developer-finops.yml)
-- [Vocabulary](vocabulary/paychex-developer-vocabulary.yml)
-- [Spectral Rules](rules/paychex-developer-rules.yml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [GitHub](https://github.com/paychex)
 
-## Maintainers
+## API Evangelist rating
 
-**Email:** kin@apievangelist.com
+**Kin Score 37.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.8 |
+| Contract quality | 62.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 5.3 |
+
+**Agent readiness 20.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.5** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/paychex-developer/](https://apis.io/providers/paychex-developer/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Paychex: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/paychex-developer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
